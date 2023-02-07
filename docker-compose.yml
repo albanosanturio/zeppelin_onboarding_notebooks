@@ -2,7 +2,7 @@ version: "3.7"
 services:
   zeppelin:
     image: apache/zeppelin:0.9.0
-    container_name: zeppelin-onboarding
+    container_name: zeppelin-onboarding-2
     user: root # This parameter is key to let spark write on volumes
     ports:
       - "9999:8080"
