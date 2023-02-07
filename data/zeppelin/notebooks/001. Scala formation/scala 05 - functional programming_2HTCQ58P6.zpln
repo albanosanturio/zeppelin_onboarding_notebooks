@@ -1,0 +1,76 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Scala 05 - Functional programming\nHere we\u0027ll get started on the scala syntax, declaring values, and making simple operations with them.\n#### Topics\n- 01.Concept\n- 02.Examples\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 19:09:58.724",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 05 - Functional programming\u003c/h1\u003e\n\u003cp\u003eHere we\u0026rsquo;ll get started on the scala syntax, declaring values, and making simple operations with them.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Concept\u003c/li\u003e\n\u003cli\u003e02.Examples\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674846559774_543035192",
+      "id": "paragraph_1674846559774_543035192",
+      "dateCreated": "2023-01-27 19:09:19.774",
+      "dateStarted": "2023-01-27 19:09:58.723",
+      "dateFinished": "2023-01-27 19:09:58.729",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 19:09:58.723",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674846598723_868443592",
+      "id": "paragraph_1674846598723_868443592",
+      "dateCreated": "2023-01-27 19:09:58.723",
+      "status": "READY"
+    }
+  ],
+  "name": "scala 05 - functional programming",
+  "id": "2HTCQ58P6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

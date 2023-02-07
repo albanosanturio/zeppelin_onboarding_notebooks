@@ -1,0 +1,246 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Spark 04 - sample spark project\nIn this notebook we will review a project with a defined structure and many classes.\nA simple process to transform some data.\nDue to the nature of zeppelin, we can\u0027t demo the full scope of compiling a project.\nWe\u0027ll review it through images and comment it in this notebook\n\n\n\n\n#### Topics\n- 01.Structure of a project\n- 02.Classes and objects\n- 03.Compiling a project\n- 04.Running an executable\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 18:56:37.509",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSpark 04 - sample spark project\u003c/h1\u003e\n\u003cp\u003eIn this notebook we will review a project with a defined structure and many classes.\u003cbr /\u003e\nA simple process to transform some data.\u003cbr /\u003e\nDue to the nature of zeppelin, we can\u0026rsquo;t demo the full scope of compiling a project.\u003cbr /\u003e\nWe\u0026rsquo;ll review it through images and comment it in this notebook\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Structure of a project\u003c/li\u003e\n\u003cli\u003e02.Classes and objects\u003c/li\u003e\n\u003cli\u003e03.Compiling a project\u003c/li\u003e\n\u003cli\u003e04.Running an executable\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672844837961_1354631219",
+      "id": "paragraph_1672844837961_1354631219",
+      "dateCreated": "2023-01-04 15:07:17.961",
+      "dateStarted": "2023-01-13 18:56:37.520",
+      "dateFinished": "2023-01-13 18:56:37.526",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## 01.Structure of a project\nIn the following images you can see a standard spark project.\nHere we are using Visual Studio Code, but another IDE suggested is IntelliJ.\n\n\nIn the left menu you can see the structure of a project\nIn the bottom, you can see a bash terminal (we\u0027ll use it later to compile)\n\n\n![](https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/spark-01-spark-project.png)\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-18 19:19:21.386",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e01.Structure of a project\u003c/h2\u003e\n\u003cp\u003eIn the following images you can see a standard spark project.\u003cbr /\u003e\nHere we are using Visual Studio Code, but another IDE suggested is IntelliJ.\u003c/p\u003e\n\u003cp\u003eIn the left menu you can see the structure of a project\u003cbr /\u003e\nIn the bottom, you can see a bash terminal (we\u0026rsquo;ll use it later to compile)\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/spark-01-spark-project.png\" alt\u003d\"\" /\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672845746695_1684227958",
+      "id": "paragraph_1672845746695_1684227958",
+      "dateCreated": "2023-01-04 15:22:26.695",
+      "dateStarted": "2023-01-18 19:19:21.387",
+      "dateFinished": "2023-01-18 19:19:21.410",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\nUsually a basic project has main classes and Utilities\nSee on the left menu the paths of our \".scala\" files\n\n\u003e src/main/scala/com/avangrid/intake\n\u003e src/main/scala/com/avangrid/intake/tools\n\nThe main idea you have to take from here is that main classes are usually in a separate path, and this main class will frequently use methods / functions stored in the utilites classes.\nThe paths where those classes are located usually define how we will access the methods.\n\nSee below the class SparkUtils.scala\nThis file contains several methods to use in our main script, for example:\n\u003e SparkUtils.getSession\n\u003e SparkUtils.responseToDataFrame\n\n\n![](https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/spark-02-spark-utils.pnga)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-18 19:17:50.957",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eUsually a basic project has main classes and Utilities\u003cbr /\u003e\nSee on the left menu the paths of our \u0026ldquo;.scala\u0026rdquo; files\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003esrc/main/scala/com/avangrid/intake\u003cbr /\u003e\nsrc/main/scala/com/avangrid/intake/tools\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eThe main idea you have to take from here is that main classes are usually in a separate path, and this main class will frequently use methods / functions stored in the utilites classes.\u003cbr /\u003e\nThe paths where those classes are located usually define how we will access the methods.\u003c/p\u003e\n\u003cp\u003eSee below the class SparkUtils.scala\u003cbr /\u003e\nThis file contains several methods to use in our main script, for example:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eSparkUtils.getSession\u003cbr /\u003e\nSparkUtils.responseToDataFrame\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/spark-02-spark-utils.pnga\" alt\u003d\"\" /\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673636561732_698283044",
+      "id": "paragraph_1673636561732_698283044",
+      "dateCreated": "2023-01-13 19:02:41.732",
+      "dateStarted": "2023-01-18 19:17:50.958",
+      "dateFinished": "2023-01-18 19:17:50.993",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n![](https://www.esic.edu/sites/default/files/rethink/9b7e1b03-spark_0.png)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-18 19:18:12.104",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://www.esic.edu/sites/default/files/rethink/9b7e1b03-spark_0.png\" alt\u003d\"\" /\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674069190222_1370388979",
+      "id": "paragraph_1674069190222_1370388979",
+      "dateCreated": "2023-01-18 19:13:10.223",
+      "dateStarted": "2023-01-18 19:18:12.104",
+      "dateFinished": "2023-01-18 19:18:12.121",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n![](file:///opt/zeppelin-notebooks/spark.png)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-18 19:18:37.261",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"file:///opt/zeppelin-notebooks/spark.png\" alt\u003d\"\" /\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673019266522_2053785613",
+      "id": "paragraph_1673019266522_2053785613",
+      "dateCreated": "2023-01-06 15:34:26.523",
+      "dateStarted": "2023-01-18 19:18:37.300",
+      "dateFinished": "2023-01-18 19:18:37.309",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-18 19:17:08.146",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674069428146_3728350",
+      "id": "paragraph_1674069428146_3728350",
+      "dateCreated": "2023-01-18 19:17:08.146",
+      "status": "READY"
+    }
+  ],
+  "name": "spark 04 - sample spark project",
+  "id": "2HN6EYT1J",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

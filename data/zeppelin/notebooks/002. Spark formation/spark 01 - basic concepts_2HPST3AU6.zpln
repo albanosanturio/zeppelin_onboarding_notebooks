@@ -1,0 +1,802 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Spark 01 - Spark basics\nThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\n\n\n#### Topics\n- 01.Basic concepts\n- 02.Dataframes and tables\n- 03.First spark lines\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 15:20:02.656",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSpark 01 - Spark basics\u003c/h1\u003e\n\u003cp\u003eThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\u003cbr /\u003e\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Basic concepts\u003c/li\u003e\n\u003cli\u003e02.Dataframes and tables\u003c/li\u003e\n\u003cli\u003e03.First spark lines\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484756_1624661294",
+      "id": "paragraph_1672422977584_934302796",
+      "dateCreated": "2022-12-30 21:58:04.756",
+      "dateStarted": "2023-01-27 15:20:02.658",
+      "dateFinished": "2023-01-27 15:20:05.373",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 01.Basic concepts\n#### What is spark?\nApache Spark is a data processing engine that can quickly perform processing tasks on very large data sets, and can also distribute data processing tasks across multiple computers.\n\nThe spark interpreter we use in these lessons is based on scala, so we encourage to review the notebooks for the scala onboarding.\n\n#### Workflow basics:\nSpark ensambles different computers to work as one. In this \"network\" each computer is called node. \nIn general, there is one \"master node\" and several \"worker nodes\".\nThe workflow commonly is: One submits jobs to the master node, this central computer distributes the work to the worker-nodes.\n\n#### Glosary\n *Spark-shell:*  This command lets us interact directly with a scala/spark interpreter and try code as we go\n *Spark-submit:* This command lets us send a job to our spark master node (Could be .py files or .jar compiled scala projects)\n *SparkSession/SparkContext:* These are spark classes that work as entrypoint for spark functionality. Keep in mind that in these zeppelin notebooks, these are automatically created. When developing a spark project, we have to expplicitly define them.\n *SparkSQL:* This is the spark module that allows us to process structured (table like) data\n *Hive:* Hive is a distributed data-warehouse platform. It could work as the underlying storage to the data we process with spark.\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 15:29:21.087",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e01.Basic concepts\u003c/h2\u003e\n\u003ch4\u003eWhat is spark?\u003c/h4\u003e\n\u003cp\u003eApache Spark is a data processing engine that can quickly perform processing tasks on very large data sets, and can also distribute data processing tasks across multiple computers.\u003c/p\u003e\n\u003cp\u003eThe spark interpreter we use in these lessons is based on scala, so we encourage to review the notebooks for the scala onboarding.\u003c/p\u003e\n\u003ch4\u003eWorkflow basics:\u003c/h4\u003e\n\u003cp\u003eSpark ensambles different computers to work as one. In this \u0026ldquo;network\u0026rdquo; each computer is called node.\u003cbr /\u003e\nIn general, there is one \u0026ldquo;master node\u0026rdquo; and several \u0026ldquo;worker nodes\u0026rdquo;.\u003cbr /\u003e\nThe workflow commonly is: One submits jobs to the master node, this central computer distributes the work to the worker-nodes.\u003c/p\u003e\n\u003ch4\u003eGlosary\u003c/h4\u003e\n\u003cp\u003e\u003cem\u003eSpark-shell:\u003c/em\u003e  This command lets us interact directly with a scala/spark interpreter and try code as we go\u003cbr /\u003e\n\u003cem\u003eSpark-submit:\u003c/em\u003e This command lets us send a job to our spark master node (Could be .py files or .jar compiled scala projects)\u003cbr /\u003e\n\u003cem\u003eSparkSession/SparkContext:\u003c/em\u003e These are spark classes that work as entrypoint for spark functionality. Keep in mind that in these zeppelin notebooks, these are automatically created. When developing a spark project, we have to expplicitly define them.\u003cbr /\u003e\n\u003cem\u003eSparkSQL:\u003c/em\u003e This is the spark module that allows us to process structured (table like) data\u003cbr /\u003e\n\u003cem\u003eHive:\u003c/em\u003e Hive is a distributed data-warehouse platform. It could work as the underlying storage to the data we process with spark.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484756_1056173254",
+      "id": "paragraph_1672423994766_622991524",
+      "dateCreated": "2022-12-30 21:58:04.757",
+      "dateStarted": "2023-01-13 15:42:19.259",
+      "dateFinished": "2023-01-13 15:42:19.271",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## 02. Dataframes and tables\n\n#### What is a dataframe\nA dataframe is a spark structure, made to contain structure data, that would be: table like data, with columns and rows. These are similar to Python pandas and R dataframes, but optimized to integrate with large-scale data.\nThe fact of working with a spark structure instead of a table, allows us to use already created spark methods to manage these dataframes, instead of relying solely on SQL queries and staging tables.\n\n#### Differences with tables\nWhen we mention a table, we are meaning a real table, stored in a database. The kind of tables that can be queried by a database engine. The main difference is what\u0027s been mentioned in the previous point. Tables have to be managed by SQL queries and staging tables. Meaning we should rely on a data-warehouse. While a dataframe lets us work in-memory.\n\n#### Common ETL workflow in spark\nThe basic way to work with spark is by using and combining the two previous structures.\nSource data may be in the form of loose files, or already structured database tables.\nWhile transforming and cleaning the data, we may use dataframes to run different filters, groupings and business rules. \nOnce we have run our processes, we may add/update/overwrite existing database tables.\nIn a nutshell: We commonly use dataframes to work with intermediate steps of an ETL process\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 15:26:16.087",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e02. Dataframes and tables\u003c/h2\u003e\n\u003ch4\u003eWhat is a dataframe\u003c/h4\u003e\n\u003cp\u003eA dataframe is a spark structure, made to contain structure data, that would be: table like data, with columns and rows. These are similar to Python pandas and R dataframes, but optimized to integrate with large-scale data.\u003cbr /\u003e\nThe fact of working with a spark structure instead of a table, allows us to use already created spark methods to manage these dataframes, instead of relying solely on SQL queries and staging tables.\u003c/p\u003e\n\u003ch4\u003eDifferences with tables\u003c/h4\u003e\n\u003cp\u003eWhen we mention a table, we are meaning a real table, stored in a database. The kind of tables that can be queried by a database engine. The main difference is what\u0026rsquo;s been mentioned in the previous point. Tables have to be managed by SQL queries and staging tables. Meaning we should rely on a data-warehouse. While a dataframe lets us work in-memory.\u003c/p\u003e\n\u003ch4\u003eCommon ETL workflow in spark\u003c/h4\u003e\n\u003cp\u003eThe basic way to work with spark is by using and combining the two previous structures.\u003cbr /\u003e\nSource data may be in the form of loose files, or already structured database tables.\u003cbr /\u003e\nWhile transforming and cleaning the data, we may use dataframes to run different filters, groupings and business rules.\u003cbr /\u003e\nOnce we have run our processes, we may add/update/overwrite existing database tables.\u003cbr /\u003e\nIn a nutshell: We commonly use dataframes to work with intermediate steps of an ETL process\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672760498346_2026541433",
+      "id": "paragraph_1672760498346_2026541433",
+      "dateCreated": "2023-01-03 15:41:38.346",
+      "dateStarted": "2023-01-04 15:05:49.900",
+      "dateFinished": "2023-01-04 15:05:49.905",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 03.First spark lines\n\n#### Hello world\nSince we are using the scala spark interpreter, interacting with the spark-shell is the same as interacting with a scala shell. So we won\u0027t go into that much detail (refer to the scala formation) Let\u0027s try the basics:\n\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:40:54.102",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e03.First spark lines\u003c/h2\u003e\n\u003ch4\u003eHello world\u003c/h4\u003e\n\u003cp\u003eSince we are using the scala spark interpreter, interacting with the spark-shell is the same as interacting with a scala shell. So we won\u0026rsquo;t go into that much detail (refer to the scala formation) Let\u0026rsquo;s try the basics:\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672762529994_1436477589",
+      "id": "paragraph_1672762529994_1436477589",
+      "dateCreated": "2023-01-03 16:15:29.994",
+      "dateStarted": "2023-01-13 15:40:54.103",
+      "dateFinished": "2023-01-13 15:40:54.108",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n//Declaring a value and printing a basic string\nval aValue \u003d \"this is a scala/spark string\"\nprintln(\"Hello world, \" + aValue)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 19:43:58.366",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hello world, this is a scala/spark string\n\u001b[1m\u001b[34maValue\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d this is a scala/spark string\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672763650994_748465748",
+      "id": "paragraph_1672763650994_748465748",
+      "dateCreated": "2023-01-03 16:34:10.994",
+      "dateStarted": "2023-01-13 19:43:58.399",
+      "dateFinished": "2023-01-13 19:43:58.528",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n#### SparkSession:\nAs we mentioned before, this entrypoint for spark is already set in these zeppelin notebooks.\nIf you use the variable: \"spark\" you\u0027ll see a sparkSession already in place\nLets go and manually create a new session, as you should do while coding projects.",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-04 14:45:10.312",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSparkSession:\u003c/h4\u003e\n\u003cp\u003eAs we mentioned before, this entrypoint for spark is already set in these zeppelin notebooks.\u003cbr /\u003e\nIf you use the variable: \u0026ldquo;spark\u0026rdquo; you\u0026rsquo;ll see a sparkSession already in place\u003cbr /\u003e\nLets go and manually create a new session, as you should do while coding projects.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672767253097_1550471173",
+      "id": "paragraph_1672767253097_1550471173",
+      "dateCreated": "2023-01-03 17:34:13.097",
+      "dateStarted": "2023-01-04 14:45:10.313",
+      "dateFinished": "2023-01-04 14:45:10.319",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// first we see as mentioned, there is already a variable called spark, see the output of the sparkshell when calling that variable:\nspark",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 19:44:01.676",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres45\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@6b93cfdf\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672763637245_787200016",
+      "id": "paragraph_1672763637245_787200016",
+      "dateCreated": "2023-01-03 16:33:57.245",
+      "dateStarted": "2023-01-13 19:44:01.705",
+      "dateFinished": "2023-01-13 19:44:01.851",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n// Now see how we create a new sparksession called spark2\n// Note: The SparkSession dependency is needed to work in our spark projects, we should explicitly import it\n\nimport org.apache.spark.sql.SparkSession\nval spark2 \u003d SparkSession.builder().getOrCreate()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 19:44:05.434",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.SparkSession\n\u001b[1m\u001b[34mspark2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@6b93cfdf\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484757_604428265",
+      "id": "paragraph_1672425389969_1171603808",
+      "dateCreated": "2022-12-30 21:58:04.757",
+      "dateStarted": "2023-01-13 19:44:05.460",
+      "dateFinished": "2023-01-13 19:44:05.638",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n// Just to include in the explanation, there are several settings we can modify in our SparkSession\n// In this example we define the master node location, the app name, and we enable the creations of tables with Hive\n// Read more about SparkSession settings in the suggested links\n\nimport org.apache.spark.sql.SparkSession\nval spark3 \u003d SparkSession.builder()\n      .master(\"spark://spark-master:7077\")\n      .appName(\"Name_of_spark_app\")\n      .enableHiveSupport()\n      .getOrCreate();",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 19:44:07.784",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.SparkSession\n\u001b[1m\u001b[34mspark3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@6b93cfdf\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617156064_1394810536",
+      "id": "paragraph_1673617156064_1394810536",
+      "dateCreated": "2023-01-13 13:39:16.064",
+      "dateStarted": "2023-01-13 19:44:07.807",
+      "dateFinished": "2023-01-13 19:44:07.950",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n#### SparkSQL\n\nNow that we established a spark session, let\u0027s use the sql module that spark has. This will be used to manage structured tables.\nRemember that there is a \"spark\" object already created, now we should use the sql method of this spark session.\n\n\u003e spark.sql(\"INSERT HERE YOUR QUERY\")\n\nIn the examples below, we\u0027ll use basic sql syntax to manage databases.\nJust as a note: in this zeppelin notebook you cannot create tables.",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-04 14:47:09.320",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSparkSQL\u003c/h4\u003e\n\u003cp\u003eNow that we established a spark session, let\u0026rsquo;s use the sql module that spark has. This will be used to manage structured tables.\u003cbr /\u003e\nRemember that there is a \u0026ldquo;spark\u0026rdquo; object already created, now we should use the sql method of this spark session.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003espark.sql(\u0026ldquo;INSERT HERE YOUR QUERY\u0026rdquo;)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eIn the examples below, we\u0026rsquo;ll use basic sql syntax to manage databases.\u003cbr /\u003e\nJust as a note: in this zeppelin notebook you cannot create tables.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672767707704_1050351153",
+      "id": "paragraph_1672767707704_1050351153",
+      "dateCreated": "2023-01-03 17:41:47.704",
+      "dateStarted": "2023-01-04 14:47:09.321",
+      "dateFinished": "2023-01-04 14:47:09.326",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// List all the databases our spark interpreter finds:\nspark.sql(\"SHOW DATABASES\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-03 17:48:15.298",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+\n|databaseName|\n+------------+\n|     default|\n|    testdata|\n+------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672767666125_1742448596",
+      "id": "paragraph_1672767666125_1742448596",
+      "dateCreated": "2023-01-03 17:41:06.125",
+      "dateStarted": "2023-01-03 17:48:15.314",
+      "dateFinished": "2023-01-03 17:48:15.489",
+      "status": "FINISHED"
+    },
+    {
+      "text": "spark.sql(\"SHOW DATABASES\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-03 16:27:30.186",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+\n|databaseName|\n+------------+\n|     default|\n|    testdata|\n+------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672762970928_1859117914",
+      "id": "paragraph_1672762970928_1859117914",
+      "dateCreated": "2023-01-03 16:22:50.928",
+      "dateStarted": "2023-01-03 16:27:30.219",
+      "dateFinished": "2023-01-03 16:27:30.457",
+      "status": "FINISHED"
+    },
+    {
+      "text": "spark.sql(\"CREATE DATABASE test_database\");\nspark.sql(\"SHOW DATABASES\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-03 16:28:06.204",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------+\n| databaseName|\n+-------------+\n|      default|\n|test_database|\n|     testdata|\n+-------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672762792925_1327243829",
+      "id": "paragraph_1672762792925_1327243829",
+      "dateCreated": "2023-01-03 16:19:52.925",
+      "dateStarted": "2023-01-03 16:28:06.300",
+      "dateFinished": "2023-01-03 16:28:06.509",
+      "status": "FINISHED"
+    },
+    {
+      "text": "spark.sql(\"DROP DATABASE test_database\")\nspark.sql(\"SHOW DATABASES\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-03 16:28:08.651",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+\n|databaseName|\n+------------+\n|     default|\n|    testdata|\n+------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672763165539_463669916",
+      "id": "paragraph_1672763165539_463669916",
+      "dateCreated": "2023-01-03 16:26:05.539",
+      "dateStarted": "2023-01-03 16:28:08.677",
+      "dateFinished": "2023-01-03 16:28:08.876",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n#### Dataframes\nLet\u0027s now use the other structure previously mentioned: Dataframes\nIn the following example you can see one particular way of creating a sample dataframe using the method: \"toDF\"\nKeep in mind there are many other forms of creating dataframes, we\u0027ll review that in a following lecture.\n\nIt works as follows\n\u003e dataframe \u003d sample.toDF(\"column_name1\",\"column_name2\")\n\nThis creates a dataframe with the data stored in the \"sample\" structure and the column names listed in \"toDF\" arguments\n\n\nIf you want to see a console output of the dataframe, you should use the method show(), working as follows:\n\u003e dataframe.show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-04 14:48:26.892",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eDataframes\u003c/h4\u003e\n\u003cp\u003eLet\u0026rsquo;s now use the other structure previously mentioned: Dataframes\u003cbr /\u003e\nIn the following example you can see one particular way of creating a sample dataframe using the method: \u0026ldquo;toDF\u0026rdquo;\u003cbr /\u003e\nKeep in mind there are many other forms of creating dataframes, we\u0026rsquo;ll review that in a following lecture.\u003c/p\u003e\n\u003cp\u003eIt works as follows\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003edataframe \u003d sample.toDF(\u0026ldquo;column_name1\u0026rdquo;,\u0026ldquo;column_name2\u0026rdquo;)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eThis creates a dataframe with the data stored in the \u0026ldquo;sample\u0026rdquo; structure and the column names listed in \u0026ldquo;toDF\u0026rdquo; arguments\u003c/p\u003e\n\u003cp\u003eIf you want to see a console output of the dataframe, you should use the method show(), working as follows:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003edataframe.show()\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672768184711_956251398",
+      "id": "paragraph_1672768184711_956251398",
+      "dateCreated": "2023-01-03 17:49:44.711",
+      "dateStarted": "2023-01-04 14:48:26.893",
+      "dateFinished": "2023-01-04 14:48:26.898",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Creating a dataframe",
+      "text": "%spark\n\n//The following is a simple way of creating a dataframe, keep in mind that there are multiple other ways to create them\n//In the next notebook we\u0027ll dig deeper on Dataframes\n\nval data \u003d Seq((\"Java\", \"20000\"), (\"Python\", \"100000\"), (\"Scala\", \"3000\"))\nval testDF \u003d data.toDF(\"language\", \"users_count\")\n\ntestDF.show()\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:36:48.453",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+-----------+\n|language|users_count|\n+--------+-----------+\n|    Java|      20000|\n|  Python|     100000|\n|   Scala|       3000|\n+--------+-----------+\n\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32mSeq[(String, String)]\u001b[0m \u003d List((Java,20000), (Python,100000), (Scala,3000))\n\u001b[1m\u001b[34mtestDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [language: string, users_count: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484757_1386306296",
+      "id": "paragraph_1672424315339_587275926",
+      "dateCreated": "2022-12-30 21:58:04.757",
+      "dateStarted": "2023-01-13 15:35:16.464",
+      "dateFinished": "2023-01-13 15:35:16.845",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Try it yourself",
+      "text": "%spark\n\n/* Using the methods described above:\nNow try creating a table storing name, city and age for four employees:\nResult should be in the form shown before: \n\n+-----+-----+---+\n| name| city|age|\n+-----+-----+---+\n|name1|cityA|  w|\n|name2|cityB|  x|\n|name3|cityC|  y|\n|name4|cityD|  z|\n+-----+-----+---+\n\nType your code below:\n*/\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:37:38.063",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484757_1611147470",
+      "id": "paragraph_1672427330464_1651805911",
+      "dateCreated": "2022-12-30 21:58:04.757",
+      "dateStarted": "2023-01-13 15:37:38.075",
+      "dateFinished": "2023-01-13 15:37:38.173",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n####  Suggested material:\n\n- Spark Essentials    - https://nttdatalearn.udemy.com/course/spark-essentials\n- Official docs       - https://spark.apache.org/docs/latest/index.html\n- SparkSession/SparkContext - https://medium.com/@achilleus/spark-session-10d0d66d1d24\n- Spark SQL Guide - https://spark.apache.org/docs/latest/sql-programming-guide.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-31 15:48:03.240",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eSpark Essentials    - \u003ca href\u003d\"https://nttdatalearn.udemy.com/course/spark-essentials\"\u003ehttps://nttdatalearn.udemy.com/course/spark-essentials\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eOfficial docs       - \u003ca href\u003d\"https://spark.apache.org/docs/latest/index.html\"\u003ehttps://spark.apache.org/docs/latest/index.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSparkSession/SparkContext - \u003ca href\u003d\"https://medium.com/@achilleus/spark-session-10d0d66d1d24\"\u003ehttps://medium.com/@achilleus/spark-session-10d0d66d1d24\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSpark SQL Guide - \u003ca href\u003d\"https://spark.apache.org/docs/latest/sql-programming-guide.html\"\u003ehttps://spark.apache.org/docs/latest/sql-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484758_112749591",
+      "id": "paragraph_1672423113057_1316286298",
+      "dateCreated": "2022-12-30 21:58:04.758",
+      "dateStarted": "2023-01-30 15:24:39.977",
+      "dateFinished": "2023-01-30 15:24:39.982",
+      "status": "FINISHED"
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-30 21:58:04.758",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437484758_1560956648",
+      "id": "20150703-133047_853701097",
+      "dateCreated": "2022-12-30 21:58:04.758",
+      "status": "READY"
+    }
+  ],
+  "name": "spark 01 - basic concepts",
+  "id": "2HPST3AU6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

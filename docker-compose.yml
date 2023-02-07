@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  zeppelin:
+    image: apache/zeppelin:0.9.0
+    container_name: zeppelin-onboarding
+    user: root # This parameter is key to let spark write on volumes
+    ports:
+      - "9999:8080"
+    volumes:
+      # - /mnt/c/Users/asanturi/Documents/test/spark:/zeppelin/spark
+      - ./apps/zeppelin:/opt/zeppelin-apps
+    #  - ./data/zeppelin:/opt/zeppelin-data
+      - ./data/zeppelin/notebooks:/opt/zeppelin-notebooks:rw
+      - ./logs:/logs
+      - ./notebooks:/notebooks
+
+
+    environment:
+      - "ZEPPELIN_NOTEBOOK_DIR=/opt/zeppelin-notebooks"
+      - "ZEPPELIN_LOG_DIR:/logs"
+      #- "SPARK_HOME=/zeppelin/spark"
+      #- "SPARK_LOCAL_IP=spark-master"
+      #- "SPARK_MASTER=spark://spark-master:7077"
+      #- "MASTER=spark://spark-master:7077"
+      - "ZEPPELIN_SSL=false"
+      - "ZEPPELIN_SSL_CLIENT_AUTH=false"
+      - "ZEPPELIN_LOCAL_IP=0.0.0.0"
+

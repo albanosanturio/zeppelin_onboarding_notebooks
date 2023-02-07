@@ -1,0 +1,31 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672438181894_624951520",
+      "id": "paragraph_1672438181894_624951520",
+      "dateCreated": "2022-12-30 22:09:41.894",
+      "status": "READY"
+    }
+  ],
+  "name": "python practice",
+  "id": "2HNXM8W6B",
+  "defaultInterpreterGroup": "python",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,829 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Spark 03 - Spark SQL\nSpark has sql module that lets us interact with tables in the same way we would in a database engine.\n\n\n##### NOTE: At the moment of the last edit. This zeppelin notebook does not allow the creation of new tables (Hive Support Error). For the moment being, use this as a guideline and you can follow along in your local spark-shell\n\n#### Topics\n- 01.External vs Internal tables\n- 02.Creating databases\n- 03.Creating tables\n- 04.Useful queries to explore current data\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 17:23:49.125",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSpark 03 - Spark SQL\u003c/h1\u003e\n\u003cp\u003eSpark has sql module that lets us interact with tables in the same way we would in a database engine.\u003c/p\u003e\n\u003ch5\u003eNOTE: At the moment of the last edit. This zeppelin notebook does not allow the creation of new tables (Hive Support Error). For the moment being, use this as a guideline and you can follow along in your local spark-shell\u003c/h5\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.External vs Internal tables\u003c/li\u003e\n\u003cli\u003e02.Creating databases\u003c/li\u003e\n\u003cli\u003e03.Creating tables\u003c/li\u003e\n\u003cli\u003e04.Useful queries to explore current data\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673630337348_302722335",
+      "id": "paragraph_1673630337348_302722335",
+      "dateCreated": "2023-01-13 17:18:57.348",
+      "dateStarted": "2023-01-13 17:23:49.126",
+      "dateFinished": "2023-01-13 17:23:49.132",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Use SQL directly",
+      "text": "%spark\n\nval df1 \u003d spark.createDataFrame(Seq((1, \"andy\", 20, \"USA\"), (2, \"jeff\", 23, \"China\"), (3, \"james\", 18, \"USA\"))).toDF(\"id\", \"name\", \"age\", \"country\")\n// call createOrReplaceTempView first if you want to query this DataFrame via sql\ndf1.createOrReplaceTempView(\"people\")\n// SparkSession.sql return DataFrame\nval df2 \u003d spark.sql(\"select name, age from people\")\ndf2.show()\n\n// You need to register udf if you want to use it in sql\nspark.udf.register(\"udf1\", (e: String) \u003d\u003e e.toUpperCase)\nval df3 \u003d spark.sql(\"select udf1(name), age from people\")\ndf3.show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:05:44.047",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----+---+\n| name|age|\n+-----+---+\n| andy| 20|\n| jeff| 23|\n|james| 18|\n+-----+---+\n\n+--------------+---+\n|UDF:udf1(name)|age|\n+--------------+---+\n|          ANDY| 20|\n|          JEFF| 23|\n|         JAMES| 18|\n+--------------+---+\n\n\u001b[1m\u001b[34mdf1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [id: int, name: string ... 2 more fields]\n\u001b[1m\u001b[34mdf2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [name: string, age: int]\n\u001b[1m\u001b[34mdf3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [UDF:udf1(name): string, age: int]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437382243_1363516909",
+      "id": "paragraph_1672437382243_1363516909",
+      "dateCreated": "2022-12-30 21:56:22.243",
+      "dateStarted": "2023-01-11 18:05:44.088",
+      "dateFinished": "2023-01-11 18:06:14.744",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.sql(\"SHOW DATABASES\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:06:34.174",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------+\n| databaseName|\n+-------------+\n|      default|\n|test_db_locat|\n+-------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672769478105_267901719",
+      "id": "paragraph_1672769478105_267901719",
+      "dateCreated": "2023-01-03 18:11:18.105",
+      "dateStarted": "2023-01-11 18:06:34.190",
+      "dateFinished": "2023-01-11 18:06:34.407",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.sql(\"CREATE DATABASE test_db_locat LOCATION \u0027/opt/spark-apps/spark-warehouse/test_db_locat.db\u0027\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:06:30.553",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460378405_1052731288",
+      "id": "paragraph_1673460378405_1052731288",
+      "dateCreated": "2023-01-11 18:06:18.406",
+      "dateStarted": "2023-01-11 18:06:30.568",
+      "dateFinished": "2023-01-11 18:06:30.901",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nsqlContext.getAllConfs.foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 13:47:35.976",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(zeppelin.spark.scala.color,true)\n(spark.sql.warehouse.dir,/opt/zeppelin/spark-warehouse/)\n(spark.driver.host,7825e9952938)\n(zeppelin.spark.sql.stacktrace,true)\n(spark.driver.port,38061)\n(spark.repl.class.uri,spark://7825e9952938:38061/classes)\n(zeppelin.spark.useHiveContext,true)\n(spark.repl.class.outputDir,/tmp/spark5812316385080729867)\n(zeppelin.spark.sql.interpolation,false)\n(zeppelin.interpreter.output.limit,102400)\n(zeppelin.interpreter.connection.poolsize,10)\n(spark.app.name,Spark Hive Example)\n(zeppelin.R.cmd,R)\n(zeppelin.spark.maxResult,1000)\n(zeppelin.pyspark.useIPython,true)\n(zeppelin.spark.concurrentSQL,true)\n(spark.scheduler.mode,FAIR)\n(zeppelin.spark.concurrentSQL.max,10)\n(PYSPARK_DRIVER_PYTHON,python)\n(zeppelin.spark.enableSupportedVersionCheck,true)\n(spark.driver.memory,1g)\n(spark.executor.instances,2)\n(zeppelin.spark.printREPLOutput,true)\n(spark.executor.id,driver)\n(spark.driver.cores,1)\n(PYSPARK_PYTHON,python)\n(spark.webui.yarn.useProxy,false)\n(spark.useHiveContext,true)\n(spark.master,local[1])\n(zeppelin.R.image.width,100%)\n(zeppelin.spark.ui.hidden,false)\n(zeppelin.kotlin.shortenTypes,true)\n(zeppelin.interpreter.localRepo,/opt/zeppelin/local-repo/spark)\n(zeppelin.spark.deprecatedMsg.show,true)\n(spark.executor.memory,1g)\n(spark.sql.catalogImplementation,hive)\n(spark.executor.cores,1)\n(zeppelin.R.render.options,out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F, fig.retina \u003d 2)\n(spark.app.id,local-1673617170053)\n(zeppelin.R.knitr,true)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617265012_2083781277",
+      "id": "paragraph_1673617265012_2083781277",
+      "dateCreated": "2023-01-13 13:41:05.012",
+      "dateStarted": "2023-01-13 13:47:35.986",
+      "dateFinished": "2023-01-13 13:47:36.112",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sh\nls /opt/zeppelin/spark-warehouse\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 13:44:48.809",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "testdata.db\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617437225_615526566",
+      "id": "paragraph_1673617437225_615526566",
+      "dateCreated": "2023-01-13 13:43:57.225",
+      "dateStarted": "2023-01-13 13:44:48.820",
+      "dateFinished": "2023-01-13 13:44:48.828",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval spark \u003d SparkSession\n  .builder()\n  .appName(\"Spark Hive Example\")\n  .config(\"spark.sql.warehouse.dir\", \"/opt/zeppelin/spark-warehouse/\")\n  .enableHiveSupport()\n  .getOrCreate()",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 13:47:31.560",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mspark\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@6b93cfdf\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617391163_1521187106",
+      "id": "paragraph_1673617391163_1521187106",
+      "dateCreated": "2023-01-13 13:43:11.163",
+      "dateStarted": "2023-01-13 13:47:31.575",
+      "dateFinished": "2023-01-13 13:47:31.666",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark.conf\n\nzeppelin.spark.useHiveContext true",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:28:30.338",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673623593277_1556093552",
+      "id": "paragraph_1673623593277_1556093552",
+      "dateCreated": "2023-01-13 15:26:33.277",
+      "dateStarted": "2023-01-13 15:28:30.366",
+      "dateFinished": "2023-01-13 15:28:30.370",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nspark.sql(\"CREATE DATABASE testDB LOCATION \u0027/opt/zeppelin/spark-warehouse/testDB.db\u0027\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:28:14.816",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.spark.sql.catalyst.analysis.DatabaseAlreadyExistsException: Database \u0027testdb\u0027 already exists;\n  at org.apache.spark.sql.catalyst.catalog.InMemoryCatalog.createDatabase(InMemoryCatalog.scala:106)\n  at org.apache.spark.sql.catalyst.catalog.ExternalCatalogWithListener.createDatabase(ExternalCatalogWithListener.scala:47)\n  at org.apache.spark.sql.catalyst.catalog.SessionCatalog.createDatabase(SessionCatalog.scala:211)\n  at org.apache.spark.sql.execution.command.CreateDatabaseCommand.run(ddl.scala:70)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:70)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:68)\n  at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:79)\n  at org.apache.spark.sql.Dataset$$anonfun$6.apply(Dataset.scala:194)\n  at org.apache.spark.sql.Dataset$$anonfun$6.apply(Dataset.scala:194)\n  at org.apache.spark.sql.Dataset$$anonfun$52.apply(Dataset.scala:3370)\n  at org.apache.spark.sql.execution.SQLExecution$$anonfun$withNewExecutionId$1.apply(SQLExecution.scala:80)\n  at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:127)\n  at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:75)\n  at org.apache.spark.sql.Dataset.withAction(Dataset.scala:3369)\n  at org.apache.spark.sql.Dataset.\u003cinit\u003e(Dataset.scala:194)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:79)\n  at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:642)\n  ... 46 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617693242_591354156",
+      "id": "paragraph_1673617693242_591354156",
+      "dateCreated": "2023-01-13 13:48:13.242",
+      "dateStarted": "2023-01-13 15:28:14.839",
+      "dateFinished": "2023-01-13 15:28:15.031",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark\nspark.sql(\"CREATE EXTERNAL TABLE testDB.test_table (column1 varchar(255),column2 int ) LOCATION \u0027/opt/zeppelin/spark-warehouse/testDB.db/test_table\u0027\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:28:19.468",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.spark.sql.AnalysisException: Hive support is required to CREATE Hive TABLE (AS SELECT);;\n\u0027CreateTable `testDB`.`test_table`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, ErrorIfExists\n\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$$anonfun$apply$12.apply(rules.scala:392)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$$anonfun$apply$12.apply(rules.scala:390)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.foreach(TreeNode.scala:116)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$.apply(rules.scala:390)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$.apply(rules.scala:388)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$2.apply(CheckAnalysis.scala:429)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$2.apply(CheckAnalysis.scala:429)\n  at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)\n  at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:429)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:95)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:108)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:105)\n  at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:201)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:58)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:56)\n  at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:48)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:78)\n  at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:642)\n  ... 46 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673617587492_15450968",
+      "id": "paragraph_1673617587492_15450968",
+      "dateCreated": "2023-01-13 13:46:27.492",
+      "dateStarted": "2023-01-13 15:28:19.487",
+      "dateFinished": "2023-01-13 15:28:19.671",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark\nspark.sql(\"CREATE EXTERNAL TABLE TABLE test_db_locat.test_table (column1 varchar(255),column2 int )\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 13:45:45.571",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.spark.sql.AnalysisException: Hive support is required to CREATE Hive TABLE (AS SELECT);;\n\u0027CreateTable `test_db_locat`.`test_table`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, ErrorIfExists\n\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$$anonfun$apply$12.apply(rules.scala:392)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$$anonfun$apply$12.apply(rules.scala:390)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.foreach(TreeNode.scala:116)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$.apply(rules.scala:390)\n  at org.apache.spark.sql.execution.datasources.HiveOnlyCheck$.apply(rules.scala:388)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$2.apply(CheckAnalysis.scala:429)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$2.apply(CheckAnalysis.scala:429)\n  at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)\n  at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:429)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:95)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:108)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:105)\n  at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:201)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:58)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:56)\n  at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:48)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:78)\n  at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:642)\n  ... 46 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460390567_756500980",
+      "id": "paragraph_1673460390567_756500980",
+      "dateCreated": "2023-01-11 18:06:30.567",
+      "dateStarted": "2023-01-13 13:45:00.999",
+      "dateFinished": "2023-01-13 13:45:01.189",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark\nspark.conf.get(\"spark.sql.hive.metastore.version\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:07:11.063",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.util.NoSuchElementException: spark.sql.hive.metastore.version\n  at org.apache.spark.sql.internal.SQLConf$$anonfun$getConfString$2.apply(SQLConf.scala:2042)\n  at org.apache.spark.sql.internal.SQLConf$$anonfun$getConfString$2.apply(SQLConf.scala:2042)\n  at scala.Option.getOrElse(Option.scala:121)\n  at org.apache.spark.sql.internal.SQLConf.getConfString(SQLConf.scala:2042)\n  at org.apache.spark.sql.RuntimeConfig.get(RuntimeConfig.scala:74)\n  ... 45 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460403845_284976679",
+      "id": "paragraph_1673460403845_284976679",
+      "dateCreated": "2023-01-11 18:06:43.845",
+      "dateStarted": "2023-01-11 18:07:11.080",
+      "dateFinished": "2023-01-11 18:07:11.513",
+      "status": "ERROR"
+    },
+    {
+      "text": "%spark\n\nspark.sparkContext.getConf.getAll(15)\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:10:14.718",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres53\u001b[0m: \u001b[1m\u001b[32m(String, String)\u001b[0m \u003d (spark.driver.cores,1)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460431078_852486679",
+      "id": "paragraph_1673460431078_852486679",
+      "dateCreated": "2023-01-11 18:07:11.078",
+      "dateStarted": "2023-01-11 18:10:14.737",
+      "dateFinished": "2023-01-11 18:10:14.868",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval spark: SparkSession \u003d SparkSession.builder().appName(\"test-submit-obj\").enableHiveSupport().getOrCreate()\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:10:58.453",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mspark\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m \u003d org.apache.spark.sql.SparkSession@591ffbcc\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460464253_1505674655",
+      "id": "paragraph_1673460464253_1505674655",
+      "dateCreated": "2023-01-11 18:07:44.253",
+      "dateStarted": "2023-01-11 18:10:58.470",
+      "dateFinished": "2023-01-11 18:10:58.589",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.sql.SparkSession",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-11 18:10:54.362",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.SparkSession\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460636289_910978972",
+      "id": "paragraph_1673460636289_910978972",
+      "dateCreated": "2023-01-11 18:10:36.289",
+      "dateStarted": "2023-01-11 18:10:54.379",
+      "dateFinished": "2023-01-11 18:10:54.483",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Visualize DataFrame/Dataset via %spark.sql",
+      "text": "\n%spark\n\nval df1 \u003d spark.createDataFrame(Seq((1, \"andy\", 20, \"USA\"), (2, \"jeff\", 23, \"China\"), (3, \"james\", 18, \"USA\"))).toDF(\"id\", \"name\", \"age\", \"country\")\n// register this DataFrame first before querying it via %spark.sql\ndf1.createOrReplaceTempView(\"people\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:52:09.246",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdf1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [id: int, name: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673625081097_1632259362",
+      "id": "paragraph_1673625081097_1632259362",
+      "dateCreated": "2023-01-13 15:51:21.097",
+      "dateStarted": "2023-01-13 15:52:08.286",
+      "dateFinished": "2023-01-13 15:52:08.621",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark.sql\n\nselect country, count(1) as count from people group by country",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:51:57.003",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "country": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "country\tcount\nChina\t1\nUSA\t2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://7825e9952938:4040/jobs/job?id\u003d9"
+            },
+            {
+              "jobUrl": "http://7825e9952938:4040/jobs/job?id\u003d10"
+            },
+            {
+              "jobUrl": "http://7825e9952938:4040/jobs/job?id\u003d11"
+            },
+            {
+              "jobUrl": "http://7825e9952938:4040/jobs/job?id\u003d12"
+            },
+            {
+              "jobUrl": "http://7825e9952938:4040/jobs/job?id\u003d13"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673460654378_1185051324",
+      "id": "paragraph_1673460654378_1185051324",
+      "dateCreated": "2023-01-11 18:10:54.378",
+      "dateStarted": "2023-01-13 15:51:54.640",
+      "dateFinished": "2023-01-13 15:51:55.255",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n####  Suggested material:\n\n- Spark Essentials    - https://nttdatalearn.udemy.com/course/spark-essentials\n- Official docs       - https://spark.apache.org/docs/latest/index.html\n- External and Internal tables - https://sparkbyexamples.com/apache-hive/difference-between-hive-internal-tables-and-external-tables/\n- Spark SQL Guide - https://spark.apache.org/docs/latest/sql-programming-guide.html\n- Hive table reference - https://spark.apache.org/docs/latest/sql-ref-syntax-ddl-create-table-hiveformat.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 17:25:59.746",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 11.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eSpark Essentials    - \u003ca href\u003d\"https://nttdatalearn.udemy.com/course/spark-essentials\"\u003ehttps://nttdatalearn.udemy.com/course/spark-essentials\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eOfficial docs       - \u003ca href\u003d\"https://spark.apache.org/docs/latest/index.html\"\u003ehttps://spark.apache.org/docs/latest/index.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eExternal and Internal tables - \u003ca href\u003d\"https://sparkbyexamples.com/apache-hive/difference-between-hive-internal-tables-and-external-tables/\"\u003ehttps://sparkbyexamples.com/apache-hive/difference-between-hive-internal-tables-and-external-tables/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSpark SQL Guide - \u003ca href\u003d\"https://spark.apache.org/docs/latest/sql-programming-guide.html\"\u003ehttps://spark.apache.org/docs/latest/sql-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eHive table reference - \u003ca href\u003d\"https://spark.apache.org/docs/latest/sql-ref-syntax-ddl-create-table-hiveformat.html\"\u003ehttps://spark.apache.org/docs/latest/sql-ref-syntax-ddl-create-table-hiveformat.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673625114639_1351774089",
+      "id": "paragraph_1673625114639_1351774089",
+      "dateCreated": "2023-01-13 15:51:54.639",
+      "dateStarted": "2023-01-13 17:25:59.747",
+      "dateFinished": "2023-01-13 17:25:59.753",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 17:24:00.789",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673630640789_1389789505",
+      "id": "paragraph_1673630640789_1389789505",
+      "dateCreated": "2023-01-13 17:24:00.789",
+      "status": "READY"
+    }
+  ],
+  "name": "spark 03 - sparkSQL",
+  "id": "2HQRCA7MS",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,178 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672438243677_2130446111",
+      "id": "paragraph_1672438243677_2130446111",
+      "dateCreated": "2022-12-30 22:10:43.677",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nhttps://zeppelin.apache.org/docs/0.10.0/usage/display_system/basic.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-04 17:38:30.400",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003ca href\u003d\"https://zeppelin.apache.org/docs/0.10.0/usage/display_system/basic.html\"\u003ehttps://zeppelin.apache.org/docs/0.10.0/usage/display_system/basic.html\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672853866350_1653375916",
+      "id": "paragraph_1672853866350_1653375916",
+      "dateCreated": "2023-01-04 17:37:46.350",
+      "dateStarted": "2023-01-04 17:38:30.401",
+      "dateFinished": "2023-01-04 17:38:30.405",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n![bla](https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/captura_1_spark_project.png)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-06 15:27:38.743",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://raw.githubusercontent.com/albanosanturio/formation_zeppelin/main/spark/captura_1_spark_project.png\" alt\u003d\"bla\" /\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672853867932_1871195959",
+      "id": "paragraph_1672853867932_1871195959",
+      "dateCreated": "2023-01-04 17:37:47.933",
+      "dateStarted": "2023-01-06 14:53:03.089",
+      "dateFinished": "2023-01-06 14:53:03.096",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sh\nls /opt/zeppelin/webapps/webapp/app/markdownImages/",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-06 14:11:16.016",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "spark.png\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673014231421_1718664507",
+      "id": "paragraph_1673014231421_1718664507",
+      "dateCreated": "2023-01-06 14:10:31.421",
+      "dateStarted": "2023-01-06 14:11:16.038",
+      "dateFinished": "2023-01-06 14:11:16.050",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-06 14:10:54.791",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673014254791_1796775693",
+      "id": "paragraph_1673014254791_1796775693",
+      "dateCreated": "2023-01-06 14:10:54.791",
+      "status": "READY"
+    }
+  ],
+  "name": "extra 01 - zeppelin notebooks overview",
+  "id": "2HQEXCBMZ",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,31 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672438016016_909743313",
+      "id": "paragraph_1672438016016_909743313",
+      "dateCreated": "2022-12-30 22:06:56.016",
+      "status": "READY"
+    }
+  ],
+  "name": "bash 02 - basics 2",
+  "id": "2HMZN5Y4J",
+  "defaultInterpreterGroup": "sh",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

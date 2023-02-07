@@ -1,0 +1,119 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Objects \nClasses\nObjects\nMethods\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-12-28 14:42:25.003",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eObjects\u003c/h3\u003e\n\u003cp\u003eClasses\u003cbr /\u003e\nObjects\u003cbr /\u003e\nMethods\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672238520517_744480408",
+      "id": "paragraph_1672238520517_744480408",
+      "dateCreated": "2022-12-28 14:42:00.517",
+      "dateStarted": "2022-12-28 14:42:25.003",
+      "dateFinished": "2022-12-28 14:42:25.013",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n# Scala 04 - Objects\nThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\n\n\n#### Topics\n- 01.Classes\n- 02.Objects\n- 03.Methods\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 15:26:48.835",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 04 - Objects\u003c/h1\u003e\n\u003cp\u003eThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\u003cbr /\u003e\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Classes\u003c/li\u003e\n\u003cli\u003e02.Objects\u003c/li\u003e\n\u003cli\u003e03.Methods\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672238545002_1459530407",
+      "id": "paragraph_1672238545002_1459530407",
+      "dateCreated": "2022-12-28 14:42:25.002",
+      "dateStarted": "2023-01-27 15:26:48.836",
+      "dateFinished": "2023-01-27 15:26:48.853",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 15:26:04.333",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674833164332_782932225",
+      "id": "paragraph_1674833164332_782932225",
+      "dateCreated": "2023-01-27 15:26:04.332",
+      "status": "READY"
+    }
+  ],
+  "name": "scala 04 - objects",
+  "id": "2HQ5DUU6V",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

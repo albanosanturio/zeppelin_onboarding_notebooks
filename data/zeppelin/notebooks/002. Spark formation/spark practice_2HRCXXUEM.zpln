@@ -1,0 +1,76 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# SPARK PRACTICE\nLet\u0027s review what we\u0027ve seen so far.\nBelow you\u0027ll find a set of suggested exercises for you to code or answer.\nMake sure to review it with a peer\n\n#### Exercises\n- 01.Create a dataframe using two differente methods\n- 02.Create and load a dataframe using a csv file\n- 03.Create and load a dataframe using a json file\n- 04.Join both dataframes using spark methods\n- 05.Join both dataframes using direct sql\n- 06.Define a SparkUtilities object\n- 07.Using the previous object: Add a method to create a spark session\n- 08.Using the previous object: Add a method to write a new dataframe\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-13 15:25:17.819",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSPARK PRACTICE\u003c/h1\u003e\n\u003cp\u003eLet\u0026rsquo;s review what we\u0026rsquo;ve seen so far.\u003cbr /\u003e\nBelow you\u0026rsquo;ll find a set of suggested exercises for you to code or answer.\u003cbr /\u003e\nMake sure to review it with a peer\u003c/p\u003e\n\u003ch4\u003eExercises\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Create a dataframe using two differente methods\u003c/li\u003e\n\u003cli\u003e02.Create and load a dataframe using a csv file\u003c/li\u003e\n\u003cli\u003e03.Create and load a dataframe using a json file\u003c/li\u003e\n\u003cli\u003e04.Join both dataframes using spark methods\u003c/li\u003e\n\u003cli\u003e05.Join both dataframes using direct sql\u003c/li\u003e\n\u003cli\u003e06.Define a SparkUtilities object\u003c/li\u003e\n\u003cli\u003e07.Using the previous object: Add a method to create a spark session\u003c/li\u003e\n\u003cli\u003e08.Using the previous object: Add a method to write a new dataframe\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672438086946_1901726995",
+      "id": "paragraph_1672438086946_1901726995",
+      "dateCreated": "2022-12-30 22:08:06.946",
+      "dateStarted": "2023-01-13 15:25:17.820",
+      "dateFinished": "2023-01-13 15:25:17.829",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-04 16:30:26.274",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672849826274_817713578",
+      "id": "paragraph_1672849826274_817713578",
+      "dateCreated": "2023-01-04 16:30:26.274",
+      "status": "READY"
+    }
+  ],
+  "name": "spark practice",
+  "id": "2HRCXXUEM",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

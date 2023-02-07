@@ -1,0 +1,864 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Scala 02 - Collections\nThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\n\n\n#### Topics\n- 01.Lists\n- 02.Maps\n- 03.Sets\n- 04.Exercises\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:34:05.307",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 02 - Collections\u003c/h1\u003e\n\u003cp\u003eThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\u003cbr /\u003e\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Lists\u003c/li\u003e\n\u003cli\u003e02.Maps\u003c/li\u003e\n\u003cli\u003e03.Sets\u003c/li\u003e\n\u003cli\u003e04.Exercises\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672238428297_624489756",
+      "id": "paragraph_1672238428297_624489756",
+      "dateCreated": "2022-12-28 14:40:28.297",
+      "dateStarted": "2023-02-02 14:34:05.308",
+      "dateFinished": "2023-02-02 14:34:05.312",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n### Collections\nScala collections systematically distinguish between mutable and immutable collections. \nA mutable collection can be updated, reduced or extended in place. This means you can change, add, or remove elements of a collection as a side effect. \nImmutable collections, by contrast, never change. You have still operations that simulate additions, removals, or updates, but those operations will in each case return a new collection and leave the old collection unchanged.\n\n\nCollections are a set of classes that are used to group multiple elements together. \nEach collection provides a standard way of processing the elements inside them (Addition, removals, updates)\n\n\nAll of them may appear and be used while developing data scripts.\nLets try and know some of them",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 19:02:51.026",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eCollections\u003c/h3\u003e\n\u003cp\u003eScala collections systematically distinguish between mutable and immutable collections.\u003cbr /\u003e\nA mutable collection can be updated, reduced or extended in place. This means you can change, add, or remove elements of a collection as a side effect.\u003cbr /\u003e\nImmutable collections, by contrast, never change. You have still operations that simulate additions, removals, or updates, but those operations will in each case return a new collection and leave the old collection unchanged.\u003c/p\u003e\n\u003cp\u003eCollections are a set of classes that are used to group multiple elements together.\u003cbr /\u003e\nEach collection provides a standard way of processing the elements inside them (Addition, removals, updates)\u003c/p\u003e\n\u003cp\u003eAll of them may appear and be used while developing data scripts.\u003cbr /\u003e\nLets try and know some of them\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675094996960_201218850",
+      "id": "paragraph_1675094996960_201218850",
+      "dateCreated": "2023-01-30 16:09:56.960",
+      "dateStarted": "2023-02-01 19:02:51.027",
+      "dateFinished": "2023-02-01 19:02:51.030",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## 01. Lists\n\n##### What is a list\nScala lists internally represent an innmutable linked list in which all the elements have the same type.\nIt maintains the order of elements and can contain duplicates as well.\nLists are immutable, which means elements of a list cannot be changed by assignment.\n\nThis class is optimal for last-in-first-out (LIFO), stack-like access patterns.",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 15:29:25.041",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e01. Lists\u003c/h2\u003e\n\u003ch5\u003eWhat is a list\u003c/h5\u003e\n\u003cp\u003eScala lists internally represent an innmutable linked list in which all the elements have the same type.\u003cbr /\u003e\nIt maintains the order of elements and can contain duplicates as well.\u003cbr /\u003e\nLists are immutable, which means elements of a list cannot be changed by assignment.\u003c/p\u003e\n\u003cp\u003eThis class is optimal for last-in-first-out (LIFO), stack-like access patterns.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675092364360_1753856727",
+      "id": "paragraph_1675092364360_1753856727",
+      "dateCreated": "2023-01-30 15:26:04.360",
+      "dateStarted": "2023-02-02 15:29:25.042",
+      "dateFinished": "2023-02-02 15:29:25.046",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Creating lists",
+      "text": "%spark\n//Directly declaring (remember that its optional to explicit datatypes)\nval a \u003d List(1, 2, 3)           // a: List[Int] \u003d List(1, 2, 3)\nval fruit: List[String] \u003d List(\"apples\", \"oranges\", \"pears\")\n\n//Using the .toList method\nval b \u003d (1 to 5).toList         // b: List[Int] \u003d List(1, 2, 3, 4, 5)\nval c \u003d (1 to 10 by 2).toList   // c: List[Int] \u003d List(1, 3, 5, 7, 9)\nval e \u003d (1 until 5).toList      // e: List[Int] \u003d List(1, 2, 3, 4)\n\n//Using range methods\nval f \u003d List.range(1, 5)        // f: List[Int] \u003d List(1, 2, 3, 4)\nval g \u003d List.range(1, 10, 3)    // g: List[Int] \u003d List(1, 4, 7)",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:50:01.663",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34ma\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3)\n\u001b[1m\u001b[34mfruit\u001b[0m: \u001b[1m\u001b[32mList[String]\u001b[0m \u003d List(apples, oranges, pears)\n\u001b[1m\u001b[34mb\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3, 4, 5)\n\u001b[1m\u001b[34mc\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 3, 5, 7, 9)\n\u001b[1m\u001b[34me\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3, 4)\n\u001b[1m\u001b[34mf\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3, 4)\n\u001b[1m\u001b[34mg\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 4, 7)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672238469793_1855969529",
+      "id": "paragraph_1672238469793_1855969529",
+      "dateCreated": "2022-12-28 14:41:09.793",
+      "dateStarted": "2023-02-02 14:50:01.675",
+      "dateFinished": "2023-02-02 14:50:01.867",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Appending data to a list",
+      "text": "%spark\n\n// The :: operator prepends one element (appends it at the beginning)\n// The ::: operator prepends another list\n\nval a \u003d List(1, 2, 3)\nval b \u003d 0 :: a              // List(0, 1, 2, 3)\nval c \u003d List(-1, 0) ::: a   // List(-1, 0, 1, 2, 3)\nval d \u003d a :: a\n\n\n\n// The :+ operator appends one element at the end\nval f \u003d a :+ 5\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 19:16:43.224",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34ma\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3)\n\u001b[1m\u001b[34mb\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(0, 1, 2, 3)\n\u001b[1m\u001b[34mc\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(-1, 0, 1, 2, 3)\n\u001b[1m\u001b[34md\u001b[0m: \u001b[1m\u001b[32mList[Any]\u001b[0m \u003d List(List(1, 2, 3), 1, 2, 3)\n\u001b[1m\u001b[34mf\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(1, 2, 3, 5)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675096718430_1852644627",
+      "id": "paragraph_1675096718430_1852644627",
+      "dateCreated": "2023-01-30 16:38:38.430",
+      "dateStarted": "2023-02-01 19:16:43.237",
+      "dateFinished": "2023-02-01 19:16:43.358",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Looping over lists",
+      "text": "%spark\n\n/* \nFor lists, we can iterate using a for loop, the syntax is:\n    \n    \u0027\u0027 for (iterator \u003c- listName) { action to perform } \u0027\u0027\n    \nwhere iterator is a name of an auxiliary variable (try and name it to be understood)\n\n\nLets see it working\n*/\n\nval names \u003d List(\"Tonio\", \"Fatima\", \"Ricardo\")\nfor (name \u003c- names) {println(name)}\n\n\nval numbers \u003d List(0,1,2,3,4,5,6,7,8,9)\nfor (i \u003c- numbers) println(i)",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 19:25:22.640",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Tonio\nFatima\nRicardo\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\u001b[1m\u001b[34mnames\u001b[0m: \u001b[1m\u001b[32mList[String]\u001b[0m \u003d List(Tonio, Fatima, Ricardo)\n\u001b[1m\u001b[34mnumbers\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675092186885_209304847",
+      "id": "paragraph_1675092186885_209304847",
+      "dateCreated": "2023-01-30 15:23:06.885",
+      "dateStarted": "2023-02-01 19:25:22.654",
+      "dateFinished": "2023-02-01 19:25:22.779",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\nOnce you have a populated list, this datatype offers a quantity of already built in methods to simplify operations.\nto list some:\n\n.distinct\n.drop\n.filter\n.head\n.max\n.min\n\nWhen needed, try and look if the needed operation has already a method. \nSee more in suggested material.\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 19:29:51.770",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eOnce you have a populated list, this datatype offers a quantity of already built in methods to simplify operations.\u003cbr /\u003e\nto list some:\u003c/p\u003e\n\u003cp\u003e.distinct\u003cbr /\u003e\n.drop\u003cbr /\u003e\n.filter\u003cbr /\u003e\n.head\u003cbr /\u003e\n.max\u003cbr /\u003e\n.min\u003c/p\u003e\n\u003cp\u003eWhen needed, try and look if the needed operation has already a method.\u003cbr /\u003e\nSee more in suggested material.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675092180569_1341258177",
+      "id": "paragraph_1675092180569_1341258177",
+      "dateCreated": "2023-01-30 15:23:00.569",
+      "dateStarted": "2023-02-01 19:29:51.770",
+      "dateFinished": "2023-02-01 19:29:51.774",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 02. Maps\n\n##### What is a map\nA Map is an iterable collection that consists of pairs of keys and values. \nScala has both mutable and immutable Map types, and this section demonstrates how to use the immutable Map.\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:34:30.069",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e02. Maps\u003c/h2\u003e\n\u003ch5\u003eWhat is a map\u003c/h5\u003e\n\u003cp\u003eA Map is an iterable collection that consists of pairs of keys and values.\u003cbr /\u003e\nScala has both mutable and immutable Map types, and this section demonstrates how to use the immutable Map.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675092448882_788790229",
+      "id": "paragraph_1675092448882_788790229",
+      "dateCreated": "2023-01-30 15:27:28.882",
+      "dateStarted": "2023-02-02 14:34:30.069",
+      "dateFinished": "2023-02-02 14:34:30.073",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nval states \u003d Map(\n  \"AK\" -\u003e \"Alaska\",\n  \"AL\" -\u003e \"Alabama\",\n  \"AZ\" -\u003e \"Arizona\"\n)",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:38:29.283",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mstates\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[String,String]\u001b[0m \u003d Map(AK -\u003e Alaska, AL -\u003e Alabama, AZ -\u003e Arizona)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675101742470_768195986",
+      "id": "paragraph_1675101742470_768195986",
+      "dateCreated": "2023-01-30 18:02:22.470",
+      "dateStarted": "2023-02-02 14:38:29.295",
+      "dateFinished": "2023-02-02 14:38:29.417",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Adding elements to a Map",
+      "text": "%spark\nval a \u003d Map(1 -\u003e \"one\")    // a: Map(1 -\u003e one)\nval b \u003d a + (2 -\u003e \"two\")   // b: Map(1 -\u003e one, 2 -\u003e two)\nval c \u003d b ++ Seq(\n  3 -\u003e \"three\",\n  4 -\u003e \"four\"\n)\n// c: Map(1 -\u003e one, 2 -\u003e two, 3 -\u003e three, 4 -\u003e four)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 19:25:39.250",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34ma\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one)\n\u001b[1m\u001b[34mb\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one, 2 -\u003e two)\n\u001b[1m\u001b[34mc\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one, 2 -\u003e two, 3 -\u003e three, 4 -\u003e four)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675101799355_1176374584",
+      "id": "paragraph_1675101799355_1176374584",
+      "dateCreated": "2023-01-30 18:03:19.355",
+      "dateStarted": "2023-01-30 18:03:23.303",
+      "dateFinished": "2023-01-30 18:03:23.590",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Removing elements from a Map",
+      "text": "%spark\nval a \u003d Map(\n  1 -\u003e \"one\",\n  2 -\u003e \"two\",\n  3 -\u003e \"three\",\n  4 -\u003e \"four\"\n)\n\nval b \u003d a - 4       // b: Map(1 -\u003e one, 2 -\u003e two, 3 -\u003e three)\nval c \u003d a - 4 - 3   // c: Map(1 -\u003e one, 2 -\u003e two)",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:38:59.502",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34ma\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one, 2 -\u003e two, 3 -\u003e three, 4 -\u003e four)\n\u001b[1m\u001b[34mb\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one, 2 -\u003e two, 3 -\u003e three)\n\u001b[1m\u001b[34mc\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Map[Int,String]\u001b[0m \u003d Map(1 -\u003e one, 2 -\u003e two)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675106754139_129921857",
+      "id": "paragraph_1675106754139_129921857",
+      "dateCreated": "2023-01-30 19:25:54.139",
+      "dateStarted": "2023-02-02 14:38:59.515",
+      "dateFinished": "2023-02-02 14:38:59.739",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\na.toList",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:39:04.416",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres36\u001b[0m: \u001b[1m\u001b[32mList[(Int, String)]\u001b[0m \u003d List((1,one), (2,two), (3,three), (4,four))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675348741539_1361688983",
+      "id": "paragraph_1675348741539_1361688983",
+      "dateCreated": "2023-02-02 14:39:01.539",
+      "dateStarted": "2023-02-02 14:39:04.428",
+      "dateFinished": "2023-02-02 14:39:04.663",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Accessing Map elements",
+      "text": "%spark\nval ak \u003d states(\"AK\")   // ak: String \u003d Alaska\nval al \u003d states(\"AL\")   // al: String \u003d Alabama",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 19:27:08.598",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mak\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d Alaska\n\u001b[1m\u001b[34mal\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d Alabama\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675101787906_1627108215",
+      "id": "paragraph_1675101787906_1627108215",
+      "dateCreated": "2023-01-30 18:03:07.906",
+      "dateStarted": "2023-01-30 18:03:09.435",
+      "dateFinished": "2023-01-30 18:03:09.560",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Iterating through elements",
+      "text": "%spark\nfor ((k, v) \u003c- states)  println(s\"key: $k, value: $v\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 19:28:13.591",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "key: AK, value: Alaska\nkey: AL, value: Alabama\nkey: AZ, value: Arizona\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675101760812_1303567621",
+      "id": "paragraph_1675101760812_1303567621",
+      "dateCreated": "2023-01-30 18:02:40.812",
+      "dateStarted": "2023-01-30 19:27:27.639",
+      "dateFinished": "2023-01-30 19:27:27.815",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 03. Sets\n\n##### What is a set\nScala Set is a collection of unique elements. By default, Scala uses an immutable set. It doesn’t maintain any order for storing elements.",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 14:34:19.407",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e03. Sets\u003c/h2\u003e\n\u003ch5\u003eWhat is a set\u003c/h5\u003e\n\u003cp\u003eScala Set is a collection of unique elements. By default, Scala uses an immutable set. It doesn’t maintain any order for storing elements.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675094769028_1057424924",
+      "id": "paragraph_1675094769028_1057424924",
+      "dateCreated": "2023-01-30 16:06:09.028",
+      "dateStarted": "2023-02-02 14:34:19.408",
+      "dateFinished": "2023-02-02 14:34:19.412",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Creating a Set",
+      "text": "%spark\n\nval nums \u003d Set(1, 2, 3, 3, 3)           // Set(1, 2, 3)\nval letters \u003d Set(\u0027a\u0027, \u0027b\u0027, \u0027c\u0027, \u0027c\u0027)   // Set(\u0027a\u0027, \u0027b\u0027, \u0027c\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 20:06:14.242",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mnums\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Set[Int]\u001b[0m \u003d Set(1, 2, 3)\n\u001b[1m\u001b[34mletters\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Set[Char]\u001b[0m \u003d Set(a, b, c)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675107876708_1093417515",
+      "id": "paragraph_1675107876708_1093417515",
+      "dateCreated": "2023-01-30 19:44:36.708",
+      "dateStarted": "2023-01-30 20:06:14.253",
+      "dateFinished": "2023-01-30 20:06:14.365",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Adding elements to a Set",
+      "text": "%spark\nval a \u003d Set(1, 2)                // Set(1, 2)\nval b \u003d a + 3                    // Set(1, 2, 3)\nval c \u003d b ++ Seq(4, 1, 5, 5)     // HashSet(5, 1, 2, 3, 4)",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 20:06:39.826",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34ma\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Set[Int]\u001b[0m \u003d Set(1, 2)\n\u001b[1m\u001b[34mb\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Set[Int]\u001b[0m \u003d Set(1, 2, 3)\n\u001b[1m\u001b[34mc\u001b[0m: \u001b[1m\u001b[32mscala.collection.immutable.Set[Int]\u001b[0m \u003d Set(5, 1, 2, 3, 4)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675109185488_1754830886",
+      "id": "paragraph_1675109185488_1754830886",
+      "dateCreated": "2023-01-30 20:06:25.488",
+      "dateStarted": "2023-01-30 20:06:27.046",
+      "dateFinished": "2023-01-30 20:06:27.155",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 04. Exercises\n\n#### For each case, create the val an iterate through it values\n\n- A. Choose the collection and create a val containing a sequence of ids, ids can be repeated\n- B. Choose the collection and create a val containing pairs of \"name\" (string) and \"age\" (int)\n- C. Choose the collection and create a val containing a sequense of ids, ids must not be repeated!\n- EXTRA: Try and mix the types by creating a list of maps\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 15:06:50.193",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e04. Exercises\u003c/h2\u003e\n\u003ch4\u003eFor each case, create the val an iterate through it values\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eA. Choose the collection and create a val containing a sequence of ids, ids can be repeated\u003c/li\u003e\n\u003cli\u003eB. Choose the collection and create a val containing pairs of \u0026ldquo;name\u0026rdquo; (string) and \u0026ldquo;age\u0026rdquo; (int)\u003c/li\u003e\n\u003cli\u003eC. Choose the collection and create a val containing a sequense of ids, ids must not be repeated!\u003c/li\u003e\n\u003cli\u003eEXTRA: Try and mix the types by creating a list of maps\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675348472905_1587084637",
+      "id": "paragraph_1675348472905_1587084637",
+      "dateCreated": "2023-02-02 14:34:32.905",
+      "dateStarted": "2023-02-02 15:06:50.194",
+      "dateFinished": "2023-02-02 15:06:50.197",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// A. Choose the collection and create a val containing a sequence of ids, ids can be repeated\n\n\n\n\n// B. Choose the collection and create a val containing pairs of \"name\" (string) and \"age\" (int)\n\n\n\n\n// C. Choose the collection and create a val containing a sequense of ids, ids must not be repeated!\n\n\n\n\n// EXTRA: Try and mix the types by creating a list of maps",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 15:27:48.884",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675349736867_2126358975",
+      "id": "paragraph_1675349736867_2126358975",
+      "dateCreated": "2023-02-02 14:55:36.867",
+      "dateStarted": "2023-02-02 15:27:48.897",
+      "dateFinished": "2023-02-02 15:27:48.968",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n####  Suggested material:\n\n- Collections    - https://docs.scala-lang.org/scala3/book/collections-classes.html\n- List class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\n- Set class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\n- Map class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-02 15:29:27.541",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eCollections    - \u003ca href\u003d\"https://docs.scala-lang.org/scala3/book/collections-classes.html\"\u003ehttps://docs.scala-lang.org/scala3/book/collections-classes.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eList class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSet class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eMap class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675092260845_1574918866",
+      "id": "paragraph_1675092260845_1574918866",
+      "dateCreated": "2023-01-30 15:24:20.845",
+      "dateStarted": "2023-02-01 19:39:46.153",
+      "dateFinished": "2023-02-01 19:39:46.157",
+      "status": "FINISHED"
+    }
+  ],
+  "name": "scala 02 - collections",
+  "id": "2HQYSNE9T",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

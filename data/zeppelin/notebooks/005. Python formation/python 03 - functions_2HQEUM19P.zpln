@@ -1,0 +1,47 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672437797123_1861460151",
+      "id": "paragraph_1672437797123_1861460151",
+      "dateCreated": "2022-12-30 22:03:17.123",
+      "status": "READY"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1673016676878_1482999781",
+      "id": "paragraph_1673016676878_1482999781",
+      "dateCreated": "2023-01-06 14:51:16.878",
+      "status": "READY"
+    }
+  ],
+  "name": "python 03 - functions",
+  "id": "2HQEUM19P",
+  "defaultInterpreterGroup": "python",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

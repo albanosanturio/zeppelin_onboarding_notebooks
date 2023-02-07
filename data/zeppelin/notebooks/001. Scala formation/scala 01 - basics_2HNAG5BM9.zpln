@@ -1,0 +1,729 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Scala 01 - Scala basics\nHere we\u0027ll get started on the scala syntax, declaring values, and making simple operations with them.\n#### Topics\n- 01.Values and Variables\n- 02.Basic structures (if / for / match)\n- 03.Concepts: Expressions / Statements / Units\n- 04.First ExerciceS: Try it yourself\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 15:12:27.185",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 01 - Scala basics\u003c/h1\u003e\n\u003cp\u003eHere we\u0026rsquo;ll get started on the scala syntax, declaring values, and making simple operations with them.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Values and Variables\u003c/li\u003e\n\u003cli\u003e02.Basic structures (if / for / match)\u003c/li\u003e\n\u003cli\u003e03.Concepts: Expressions / Statements / Units\u003c/li\u003e\n\u003cli\u003e04.First ExerciceS: Try it yourself\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672424589742_2130011573",
+      "id": "paragraph_1672424589742_2130011573",
+      "dateCreated": "2022-12-30 18:23:09.743",
+      "dateStarted": "2023-02-01 15:12:27.185",
+      "dateFinished": "2023-02-01 15:12:27.189",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 01.Values and Variables\n##### Difference of values and variables\n\nIn scala, we have to keep in mind this basic difference between values (val) and variables (var)\n\nval\tcreates an immutable variable You should always create a variable with val, unless there’s a reason you need a mutable variable.\nvar\tcreates a mutable variable, and should only be used when a variable’s contents will change over time.\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-31 15:39:34.686",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e01.Values and Variables\u003c/h2\u003e\n\u003ch5\u003eDifference of values and variables\u003c/h5\u003e\n\u003cp\u003eIn scala, we have to keep in mind this basic difference between values (val) and variables (var)\u003c/p\u003e\n\u003cp\u003eval\tcreates an immutable variable You should always create a variable with val, unless there’s a reason you need a mutable variable.\u003cbr /\u003e\nvar\tcreates a mutable variable, and should only be used when a variable’s contents will change over time.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674833322087_1844403253",
+      "id": "paragraph_1674833322087_1844403253",
+      "dateCreated": "2023-01-27 15:28:42.088",
+      "dateStarted": "2023-01-31 15:39:34.687",
+      "dateFinished": "2023-01-31 15:39:34.691",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n// immutable\nval val_a \u003d 0\n\n// mutable\nvar var_b \u003d 1",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 18:52:39.090",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mval_a\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 0\n\u001b[1m\u001b[34mvar_b\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674833511149_150990774",
+      "id": "paragraph_1674833511149_150990774",
+      "dateCreated": "2023-01-27 15:31:51.149",
+      "dateStarted": "2023-01-27 18:52:39.113",
+      "dateFinished": "2023-01-27 18:52:39.245",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\nThe practical effect in an application is that a var can be reassigned while a val can’t be. You’ll cause a compiler error if you try to reassign one:",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 19:05:09.955",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eThe practical effect in an application is that a var can be reassigned while a val can’t be. You’ll cause a compiler error if you try to reassign one:\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674845676668_323150937",
+      "id": "paragraph_1674845676668_323150937",
+      "dateCreated": "2023-01-27 18:54:36.669",
+      "dateStarted": "2023-01-27 19:05:09.956",
+      "dateFinished": "2023-01-27 19:05:09.961",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n//Reassigning a var\nvar msg_var \u003d \"Hello, world\"\nmsg_var \u003d \"Aloha\"   // reassignment of var is possible\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 18:57:20.445",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mmsg_var\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d Aloha\nmsg_var: String \u003d Aloha\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674845726910_1096647177",
+      "id": "paragraph_1674845726910_1096647177",
+      "dateCreated": "2023-01-27 18:55:26.911",
+      "dateStarted": "2023-01-27 18:57:16.347",
+      "dateFinished": "2023-01-27 18:57:16.448",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n//Reassigning a val \nval msg_val \u003d \"Hello, world\"\nmsg_val \u003d \"Aloha\"   // \"reassignment to val\" error; this won’t compile",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 18:57:32.963",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:26: \u001b[31merror: \u001b[0mreassignment to val\n       msg_val \u003d \"Aloha\"   // \"reassignment to val\" error; this won’t compile\n               ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674845711528_1301501511",
+      "id": "paragraph_1674845711528_1301501511",
+      "dateCreated": "2023-01-27 18:55:11.528",
+      "dateStarted": "2023-01-27 18:57:32.978",
+      "dateFinished": "2023-01-27 18:57:33.013",
+      "status": "ERROR"
+    },
+    {
+      "text": "%md\nDeclaring variable types:\nWhen you create a variable you can explicitly declare its type, or let the compiler infer the type:",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 19:05:36.010",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDeclaring variable types:\u003cbr /\u003e\nWhen you create a variable you can explicitly declare its type, or let the compiler infer the type:\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674845599274_3270544",
+      "id": "paragraph_1674845599274_3270544",
+      "dateCreated": "2023-01-27 18:53:19.274",
+      "dateStarted": "2023-01-27 19:05:36.011",
+      "dateFinished": "2023-01-27 19:05:36.016",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n\nval x1: Int \u003d 1   // explicit\nval x2 \u003d 1        // implicit; the compiler infers the type",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-27 18:54:21.407",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mx1\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 1\n\u001b[1m\u001b[34mx2\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674833525298_1726976411",
+      "id": "paragraph_1674833525298_1726976411",
+      "dateCreated": "2023-01-27 15:32:05.299",
+      "dateStarted": "2023-01-27 18:54:21.422",
+      "dateFinished": "2023-01-27 18:54:21.551",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n// Other types of variables are the following:\n  val aBoolean: Boolean \u003d false\n  val aChar: Char \u003d \u0027a\u0027\n  val anInt: Int \u003d 42\n  val aShort: Short \u003d 4613\n  val aLong: Long \u003d 5273985273895237L\n  val aFloat: Float \u003d 2.0f\n  val aDouble: Double \u003d 3.14",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 14:07:52.828",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34maBoolean\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n\u001b[1m\u001b[34maChar\u001b[0m: \u001b[1m\u001b[32mChar\u001b[0m \u003d a\n\u001b[1m\u001b[34manInt\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 42\n\u001b[1m\u001b[34maShort\u001b[0m: \u001b[1m\u001b[32mShort\u001b[0m \u003d 4613\n\u001b[1m\u001b[34maLong\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 5273985273895237\n\u001b[1m\u001b[34maFloat\u001b[0m: \u001b[1m\u001b[32mFloat\u001b[0m \u003d 2.0\n\u001b[1m\u001b[34maDouble\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m \u003d 3.14\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675087635519_414109181",
+      "id": "paragraph_1675087635519_414109181",
+      "dateCreated": "2023-01-30 14:07:15.519",
+      "dateStarted": "2023-01-30 14:07:52.857",
+      "dateFinished": "2023-01-30 14:07:52.940",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 02.Basic Structures\n#### if/else - for loop - match\n\nThese three logical expressions are used commonly among all languages, lets see how the syntax works with scala:",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-31 15:51:01.673",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e02.Basic Structures\u003c/h2\u003e\n\u003ch4\u003eif/else - for loop - match\u003c/h4\u003e\n\u003cp\u003eThese three logical expressions are used commonly among all languages, lets see how the syntax works with scala:\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674845581350_87717292",
+      "id": "paragraph_1674845581350_87717292",
+      "dateCreated": "2023-01-27 18:53:01.350",
+      "dateStarted": "2023-01-31 15:51:01.673",
+      "dateFinished": "2023-01-31 15:51:01.676",
+      "status": "FINISHED"
+    },
+    {
+      "title": "if/else",
+      "text": "%spark\n\nval x \u003d 1\n\nif (x \u003c 0) println(\"negative\") else println(\"positive\")",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 15:16:41.517",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "positive\n\u001b[1m\u001b[34mx\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674846356360_1750249580",
+      "id": "paragraph_1674846356360_1750249580",
+      "dateCreated": "2023-01-27 19:05:56.360",
+      "dateStarted": "2023-01-30 15:16:02.909",
+      "dateFinished": "2023-01-30 15:16:03.048",
+      "status": "FINISHED"
+    },
+    {
+      "title": "match",
+      "text": "%spark\nval i \u003d 1\n\n// later in the code ...\ni match {\n  case 1 \u003d\u003e println(\"one\")\n  case 2 \u003d\u003e println(\"two\")\n  case _ \u003d\u003e println(\"other\")\n}",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 15:17:38.021",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "one\n\u001b[1m\u001b[34mi\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m \u003d 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675091648579_1567020612",
+      "id": "paragraph_1675091648579_1567020612",
+      "dateCreated": "2023-01-30 15:14:08.579",
+      "dateStarted": "2023-01-30 15:17:26.993",
+      "dateFinished": "2023-01-30 15:17:27.215",
+      "status": "FINISHED"
+    },
+    {
+      "title": "for loop",
+      "text": "%spark\r\nval fruits \u003d List(\"apple\", \"banana\", \"lime\", \"orange\")\r\n\r\nval fruitLengths \u003d\r\n  for (f \u003c- fruits if f.length \u003e 4) yield f.length",
+      "user": "anonymous",
+      "dateUpdated": "2023-01-30 15:19:50.199",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfruits\u001b[0m: \u001b[1m\u001b[32mList[String]\u001b[0m \u003d List(apple, banana, lime, orange)\n\u001b[1m\u001b[34mfruitLengths\u001b[0m: \u001b[1m\u001b[32mList[Int]\u001b[0m \u003d List(5, 6, 6)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675091846992_1011861508",
+      "id": "paragraph_1675091846992_1011861508",
+      "dateCreated": "2023-01-30 15:17:26.993",
+      "dateStarted": "2023-01-30 15:19:50.212",
+      "dateFinished": "2023-01-30 15:19:51.059",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 03. Concepts: Expressions / Statements / Units\n\n\nWhile going through scala lessons/documentation you will read the above terms repeatedly.\nWhile this is conceptual and not mandatory to understand, it\u0027s recommended to start having this ideas in mind while coding.\nLet\u0027s try and give an intuitive idea for each.\n\n\n#### Expressions:\nExpressions are evaluations that produce or return a value.\nAn expression is a series of variables, values, operators, and literals we use to compute. For instance, a mathematical expression such as 100+1, or 99*(89+3). Or other kind of expressions: Boolean / logical / string. \n\n\n#### Statements:\nA statement is an expression that declares some action to be done.\nSince a Scala statement returns a value, some people do not call them a statement. They call them an expression. So, it is common that you find people saying that Scala does not have statements but only expressions.\n\nThe idea behind a statement returning a value is to helps us eliminate variables and achieve immutability.\nThis is aligned with the concept of functional programming. Scala aims to this. See suggested material\n\n#### Units:\nThe unit is a return type in scala, and it acts as a void in another programming language like java. We should go for unit type when we are not returning anything from our function; we are just executing our logic and updating some values that can be anything also include some database calls or running a method in a separate thread.\nHowever, it is not exactly same as void. The void means nothing whereas unit has a value.\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 15:03:54.026",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e03. Concepts: Expressions / Statements / Units\u003c/h2\u003e\n\u003cp\u003eWhile going through scala lessons/documentation you will read the above terms repeatedly.\u003cbr /\u003e\nWhile this is conceptual and not mandatory to understand, it\u0026rsquo;s recommended to start having this ideas in mind while coding.\u003cbr /\u003e\nLet\u0026rsquo;s try and give an intuitive idea for each.\u003c/p\u003e\n\u003ch4\u003eExpressions:\u003c/h4\u003e\n\u003cp\u003eExpressions are evaluations that produce or return a value.\u003cbr /\u003e\nAn expression is a series of variables, values, operators, and literals we use to compute. For instance, a mathematical expression such as 100+1, or 99*(89+3). Or other kind of expressions: Boolean / logical / string.\u003c/p\u003e\n\u003ch4\u003eStatements:\u003c/h4\u003e\n\u003cp\u003eA statement is an expression that declares some action to be done.\u003cbr /\u003e\nSince a Scala statement returns a value, some people do not call them a statement. They call them an expression. So, it is common that you find people saying that Scala does not have statements but only expressions.\u003c/p\u003e\n\u003cp\u003eThe idea behind a statement returning a value is to helps us eliminate variables and achieve immutability.\u003cbr /\u003e\nThis is aligned with the concept of functional programming. Scala aims to this. See suggested material\u003c/p\u003e\n\u003ch4\u003eUnits:\u003c/h4\u003e\n\u003cp\u003eThe unit is a return type in scala, and it acts as a void in another programming language like java. We should go for unit type when we are not returning anything from our function; we are just executing our logic and updating some values that can be anything also include some database calls or running a method in a separate thread.\u003cbr /\u003e\nHowever, it is not exactly same as void. The void means nothing whereas unit has a value.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675091971584_1942909879",
+      "id": "paragraph_1675091971584_1942909879",
+      "dateCreated": "2023-01-30 15:19:31.584",
+      "dateStarted": "2023-02-01 15:03:54.027",
+      "dateFinished": "2023-02-01 15:03:54.031",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## 04. First exercises: Try it yourself\n- Declare two integers\n- Create an if expression comparing the previous integers, the result must be to print \"first higher / equals / second higher\"\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 15:12:50.935",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e04. First exercises: Try it yourself\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eDeclare two integers\u003c/li\u003e\n\u003cli\u003eCreate an if expression comparing the previous integers, the result must be to print \u0026ldquo;first higher / equals / second higher\u0026rdquo;\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675263828338_377688089",
+      "id": "paragraph_1675263828338_377688089",
+      "dateCreated": "2023-02-01 15:03:48.338",
+      "dateStarted": "2023-02-01 15:12:50.936",
+      "dateFinished": "2023-02-01 15:12:50.940",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\n//Write your code in this box\n\n\n\n\n\n\n// *note: try using descriptive names and camelCase, such as: firstInteger / sencondInteger\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 15:14:21.962",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675264272064_11517309",
+      "id": "paragraph_1675264272064_11517309",
+      "dateCreated": "2023-02-01 15:11:12.064",
+      "dateStarted": "2023-02-01 15:14:21.973",
+      "dateFinished": "2023-02-01 15:14:22.027",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n####  Suggested material:\n\n- Expressions   - https://www.learningjournal.guru/article/scala/functional-programming/statements-and-expressions-in-scala\n- Scala Unit Type - https://www.educba.com/scala-unit/\n- Functional Programming vs OOP - https://www.youtube.com/watch?v\u003d08CWw_VD45w",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-01 15:03:11.272",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eExpressions   - \u003ca href\u003d\"https://www.learningjournal.guru/article/scala/functional-programming/statements-and-expressions-in-scala\"\u003ehttps://www.learningjournal.guru/article/scala/functional-programming/statements-and-expressions-in-scala\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eScala Unit Type - \u003ca href\u003d\"https://www.educba.com/scala-unit/\"\u003ehttps://www.educba.com/scala-unit/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eFunctional Programming vs OOP - \u003ca href\u003d\"https://www.youtube.com/watch?v\u003d08CWw_VD45w\"\u003ehttps://www.youtube.com/watch?v\u003d08CWw_VD45w\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675177552521_1919883833",
+      "id": "paragraph_1675177552521_1919883833",
+      "dateCreated": "2023-01-31 15:05:52.521",
+      "dateStarted": "2023-02-01 15:03:11.272",
+      "dateFinished": "2023-02-01 15:03:11.276",
+      "status": "FINISHED"
+    }
+  ],
+  "name": "scala 01 - basics",
+  "id": "2HNAG5BM9",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
