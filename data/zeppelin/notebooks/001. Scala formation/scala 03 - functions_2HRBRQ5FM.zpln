@@ -46,10 +46,10 @@
     {
       "text": "%md\n## 01. Methods\n\n##### Scala methods\nIn scala, what we usually understand as function is called a method.\n\nA method is an operation defined on its own, or as part of a class/object (more on that later)\nOften, is a functionality that is embedded in that class and that you can invoke from that class.\nBut since scala 3, a method can be defined outside a class.\n\n\n\u003e ##### The following example would be the structure of a method:\n\u003e `def methodName(param1: Type1, param2: Type2): ReturnType \u003d {`  \n\u003e `    methodBody    return value`\n\u003e `}`\n\nLets see it in detail",
       "user": "anonymous",
-      "dateUpdated": "2023-02-08 18:06:44.907",
+      "dateUpdated": "2023-02-10 14:42:01.894",
       "progress": 0,
       "config": {
-        "tableHide": false,
+        "tableHide": true,
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": true,
@@ -59,7 +59,7 @@
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
         "fontSize": 9.0,
-        "editorHide": true,
+        "editorHide": false,
         "results": {},
         "enabled": true
       },

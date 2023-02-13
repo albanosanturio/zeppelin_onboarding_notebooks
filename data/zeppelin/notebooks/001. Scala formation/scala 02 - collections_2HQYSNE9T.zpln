@@ -46,7 +46,7 @@
     {
       "text": "%md\n### Collections\nScala collections systematically distinguish between mutable and immutable collections. \nA mutable collection can be updated, reduced or extended in place. This means you can change, add, or remove elements of a collection as a side effect. \nImmutable collections, by contrast, never change. You have still operations that simulate additions, removals, or updates, but those operations will in each case return a new collection and leave the old collection unchanged.\n\n\nCollections are a set of classes that are used to group multiple elements together. \nEach collection provides a standard way of processing the elements inside them (Addition, removals, updates)\n\n\nAll of them may appear and be used while developing data scripts.\nLets try and know some of them",
       "user": "anonymous",
-      "dateUpdated": "2023-02-01 19:02:51.026",
+      "dateUpdated": "2023-02-09 15:08:46.952",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -82,8 +82,8 @@
       "jobName": "paragraph_1675094996960_201218850",
       "id": "paragraph_1675094996960_201218850",
       "dateCreated": "2023-01-30 16:09:56.960",
-      "dateStarted": "2023-02-01 19:02:51.027",
-      "dateFinished": "2023-02-01 19:02:51.030",
+      "dateStarted": "2023-02-09 15:08:46.952",
+      "dateFinished": "2023-02-09 15:08:46.962",
       "status": "FINISHED"
     },
     {
@@ -809,10 +809,10 @@
     {
       "text": "%md\n####  Suggested material:\n\n- Collections    - https://docs.scala-lang.org/scala3/book/collections-classes.html\n- List class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\n- Set class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\n- Map class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html",
       "user": "anonymous",
-      "dateUpdated": "2023-02-02 15:29:27.541",
+      "dateUpdated": "2023-02-09 15:06:49.458",
       "progress": 0,
       "config": {
-        "tableHide": true,
+        "tableHide": false,
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": true,
@@ -822,7 +822,7 @@
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
         "fontSize": 9.0,
-        "editorHide": false,
+        "editorHide": true,
         "results": {},
         "enabled": true
       },
@@ -845,8 +845,8 @@
       "jobName": "paragraph_1675092260845_1574918866",
       "id": "paragraph_1675092260845_1574918866",
       "dateCreated": "2023-01-30 15:24:20.845",
-      "dateStarted": "2023-02-01 19:39:46.153",
-      "dateFinished": "2023-02-01 19:39:46.157",
+      "dateStarted": "2023-02-09 15:06:49.459",
+      "dateFinished": "2023-02-09 15:06:49.467",
       "status": "FINISHED"
     }
   ],

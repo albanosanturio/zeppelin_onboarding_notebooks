@@ -1,52 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n### Objects \nClasses\nObjects\nMethods\n",
+      "text": "%md\n\n# Scala 04 - Objects\nThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\n\n\n#### Topics\n- 01.Classes\n- 02.Singleton Objects\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-12-28 14:42:25.003",
-      "progress": 0,
-      "config": {
-        "tableHide": false,
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/markdown",
-        "fontSize": 9.0,
-        "editorHide": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eObjects\u003c/h3\u003e\n\u003cp\u003eClasses\u003cbr /\u003e\nObjects\u003cbr /\u003e\nMethods\u003c/p\u003e\n\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1672238520517_744480408",
-      "id": "paragraph_1672238520517_744480408",
-      "dateCreated": "2022-12-28 14:42:00.517",
-      "dateStarted": "2022-12-28 14:42:25.003",
-      "dateFinished": "2022-12-28 14:42:25.013",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%md\n\n# Scala 04 - Objects\nThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\n\n\n#### Topics\n- 01.Classes\n- 02.Objects\n- 03.Methods\n\n",
-      "user": "anonymous",
-      "dateUpdated": "2023-01-27 15:26:48.835",
+      "dateUpdated": "2023-02-10 15:29:56.279",
       "progress": 0,
       "config": {
         "colWidth": 12.0,
@@ -72,7 +29,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 04 - Objects\u003c/h1\u003e\n\u003cp\u003eThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\u003cbr /\u003e\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Classes\u003c/li\u003e\n\u003cli\u003e02.Objects\u003c/li\u003e\n\u003cli\u003e03.Methods\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 04 - Objects\u003c/h1\u003e\n\u003cp\u003eThe purpose of this notebook is to get you started with how to deal with data using the spark framework.\u003cbr /\u003e\nThis notebook assumes the spark cluster is up and running correctly, we do not intend to explain a full setup of a spark cluster.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Classes\u003c/li\u003e\n\u003cli\u003e02.Singleton Objects\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -82,14 +39,257 @@
       "jobName": "paragraph_1672238545002_1459530407",
       "id": "paragraph_1672238545002_1459530407",
       "dateCreated": "2022-12-28 14:42:25.002",
-      "dateStarted": "2023-01-27 15:26:48.836",
-      "dateFinished": "2023-01-27 15:26:48.853",
+      "dateStarted": "2023-02-10 15:29:56.280",
+      "dateFinished": "2023-02-10 15:29:56.285",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n### 01.Classes\n\nIt\u0027s a core concept of the \"Object Oriented Programming\" (OOP) paradigm.\ndata structures.\n\nWhat is a class?\nIn OOP, classes are data structures. \nThey are the units of code that define an abstract concept.\nClasses have properties (called fields) and can perform defined actions (called methods)\n\n\n#### class template:\n\u003e ` class className (field1: String)  { `\n\u003e `   def method1 \u003d // here your code`\n\u003e ` }`\n\n\nOnce a class is defined, to be able to work with them we have to create an object based on that class.\nEach object has the properties, and the actions inherited from the class.\nAs a concept: Each object is an instance of a particular class\n\n#### instance of a class:\n\u003e ` val object1 \u003d new className(\"field1_value\") `\n\nNote1: Keep in mind that Scala is a hybrid between functional and object-oriented programming.\nNote2: The objects created in this section should not be confused with the next topic \"Singleton Objects\"",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-10 19:19:24.762",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003e01.Classes\u003c/h3\u003e\n\u003cp\u003eIt\u0026rsquo;s a core concept of the \u0026ldquo;Object Oriented Programming\u0026rdquo; (OOP) paradigm.\u003cbr /\u003e\ndata structures.\u003c/p\u003e\n\u003cp\u003eWhat is a class?\u003cbr /\u003e\nIn OOP, classes are data structures.\u003cbr /\u003e\nThey are the units of code that define an abstract concept.\u003cbr /\u003e\nClasses have properties (called fields) and can perform defined actions (called methods)\u003c/p\u003e\n\u003ch4\u003eclass template:\u003c/h4\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ccode\u003eclass className (field1: String) {\u003c/code\u003e\u003cbr /\u003e\n\u003ccode\u003edef method1 \u003d // here your code\u003c/code\u003e\u003cbr /\u003e\n\u003ccode\u003e}\u003c/code\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eOnce a class is defined, to be able to work with them we have to create an object based on that class.\u003cbr /\u003e\nEach object has the properties, and the actions inherited from the class.\u003cbr /\u003e\nAs a concept: Each object is an instance of a particular class\u003c/p\u003e\n\u003ch4\u003einstance of a class:\u003c/h4\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ccode\u003eval object1 \u003d new className(\u0026quot;field1_value\u0026quot;)\u003c/code\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eNote1: Keep in mind that Scala is a hybrid between functional and object-oriented programming.\u003cbr /\u003e\nNote2: The objects created in this section should not be confused with the next topic \u0026ldquo;Singleton Objects\u0026rdquo;\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675955332180_1821634531",
+      "id": "paragraph_1675955332180_1821634531",
+      "dateCreated": "2023-02-09 15:08:52.181",
+      "dateStarted": "2023-02-10 19:19:24.763",
+      "dateFinished": "2023-02-10 19:19:24.769",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Defining a class \u0026 Instantiating an object",
+      "text": "%spark\n\n// As a classic example let\u0027s think of a \"Dog\" class\n// A dog has a name property (name field)\n// It can do the action of barking (bark method)\n \nclass dog(name: String)  {   \n    def bark \u003d println(\"bark bark, my name is \" + name)\n}\n\n\n// now let\u0027s create an object, which is: an instance of a class\n\nval pet \u003d new dog(\"sparkie\")\n\n// and now we call its \"bark\" method\n\nprintln(pet.bark)\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-10 15:19:58.151",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "bark bark, my name is sparkie\n()\ndefined class dog\n\u001b[1m\u001b[34mpet\u001b[0m: \u001b[1m\u001b[32mdog\u001b[0m \u003d dog@739e7405\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675955225261_2001190170",
+      "id": "paragraph_1675955225261_2001190170",
+      "dateCreated": "2023-02-09 15:07:05.261",
+      "dateStarted": "2023-02-10 15:19:49.085",
+      "dateFinished": "2023-02-10 15:19:49.155",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\nclass MyService(name: String) extends ComposedService with Showable {\n  def show \u003d s\"$name says $sayHello\"\n}",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-10 14:41:18.418",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676038541729_1784393590",
+      "id": "paragraph_1676038541729_1784393590",
+      "dateCreated": "2023-02-10 14:15:41.729",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n### 02.Singleton Objects\n\nIn Scala, the object keyword creates a Singleton object. An object defines a class that has exactly one instance.\nObjects have several uses:\n\nThey are used to create collections of utility methods.\nA companion object is an object that has the same name as the class it shares a file with. In this situation, that class is also called a companion class.\nThey’re used to implement traits to create modules.\n\n\nScala Singleton Object\nSingleton object is an object which is declared by using object keyword instead by class. No object is required to call methods declared inside singleton object.\n\nIn scala, there is no static concept. So scala creates a singleton object to provide entry point for your program execution.\n\nIf you don\u0027t create singleton object, your code will compile successfully but will not produce any output. Methods declared inside Singleton Object are accessible globally. A singleton object can extend classes and traits.\n\n\n\n#### object template:\n\u003e ` object singleton (field1: String)  { `\n\u003e `   def method1 \u003d // here your code`\n\u003e ` }`\n\n\nAgain, keep in mind this difference between objects that are an instance of a class vs Singleton Objects",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-10 19:14:49.477",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003e02.Singleton Objects\u003c/h3\u003e\n\u003cp\u003eIn Scala, the object keyword creates a Singleton object. An object defines a class that has exactly one instance.\u003cbr /\u003e\nObjects have several uses:\u003c/p\u003e\n\u003cp\u003eThey are used to create collections of utility methods.\u003cbr /\u003e\nA companion object is an object that has the same name as the class it shares a file with. In this situation, that class is also called a companion class.\u003cbr /\u003e\nThey’re used to implement traits to create modules.\u003c/p\u003e\n\u003cp\u003eScala Singleton Object\u003cbr /\u003e\nSingleton object is an object which is declared by using object keyword instead by class. No object is required to call methods declared inside singleton object.\u003c/p\u003e\n\u003cp\u003eIn scala, there is no static concept. So scala creates a singleton object to provide entry point for your program execution.\u003c/p\u003e\n\u003cp\u003eIf you don\u0026rsquo;t create singleton object, your code will compile successfully but will not produce any output. Methods declared inside Singleton Object are accessible globally. A singleton object can extend classes and traits.\u003c/p\u003e\n\u003ch4\u003eobject template:\u003c/h4\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003ccode\u003eobject singleton (field1: String) {\u003c/code\u003e\u003cbr /\u003e\n\u003ccode\u003edef method1 \u003d // here your code\u003c/code\u003e\u003cbr /\u003e\n\u003ccode\u003e}\u003c/code\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eAgain, keep in mind this difference between objects that are an instance of a class vs Singleton Objects\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1675955222257_1346279282",
+      "id": "paragraph_1675955222257_1346279282",
+      "dateCreated": "2023-02-09 15:07:02.257",
+      "dateStarted": "2023-02-10 19:14:49.478",
+      "dateFinished": "2023-02-10 19:14:49.489",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%spark\n\nobject utilityMethods {\n  def isNullOrEmpty(s: String): Boolean \u003d s \u003d\u003d null || s.trim.isEmpty\n  def leftTrim(s: String): String \u003d s.replaceAll(\"^\\\\s+\", \"\")\n  def rightTrim(s: String): String \u003d s.replaceAll(\"\\\\s+$\", \"\")\n}\n\n// Because StringUtils is a singleton, its methods can be called directly on the object:\n\nval x \u003d StringUtils.isNullOrEmpty(\"\")    // true\nval x \u003d StringUtils.isNullOrEmpty(\"a\")   // false",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-10 19:15:20.093",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:36: \u001b[31merror: \u001b[0mx is already defined as value x\n       val x \u003d StringUtils.isNullOrEmpty(\"a\")   // false\n           ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676043003548_65240152",
+      "id": "paragraph_1676043003548_65240152",
+      "dateCreated": "2023-02-10 15:30:03.548",
+      "dateStarted": "2023-02-10 19:14:52.666",
+      "dateFinished": "2023-02-10 19:14:52.686",
+      "status": "ERROR"
+    },
+    {
+      "text": "%md\n####  Suggested material:\n\n- Object Oriented Programming (OOP)    - https://www.baeldung.com/scala/oop-intro\n- List class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\n- Set class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\n- Map class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-09 15:35:16.992",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eObject Oriented Programming (OOP)    - \u003ca href\u003d\"https://www.baeldung.com/scala/oop-intro\"\u003ehttps://www.baeldung.com/scala/oop-intro\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eList class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSet class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eMap class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674833164332_782932225",
+      "id": "paragraph_1674833164332_782932225",
+      "dateCreated": "2023-01-27 15:26:04.332",
+      "dateStarted": "2023-02-09 15:35:16.992",
+      "dateFinished": "2023-02-09 15:35:17.000",
       "status": "FINISHED"
     },
     {
       "text": "%md\n",
       "user": "anonymous",
-      "dateUpdated": "2023-01-27 15:26:04.333",
+      "dateUpdated": "2023-02-09 15:07:01.038",
       "progress": 0,
       "config": {},
       "settings": {
@@ -99,9 +299,9 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1674833164332_782932225",
-      "id": "paragraph_1674833164332_782932225",
-      "dateCreated": "2023-01-27 15:26:04.332",
+      "jobName": "paragraph_1675955221037_339900750",
+      "id": "paragraph_1675955221037_339900750",
+      "dateCreated": "2023-02-09 15:07:01.038",
       "status": "READY"
     }
   ],
