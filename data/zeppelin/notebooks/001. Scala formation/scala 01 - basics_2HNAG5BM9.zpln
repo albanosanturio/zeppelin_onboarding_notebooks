@@ -674,10 +674,10 @@
     {
       "text": "%md\n\n####  Suggested material:\n\n- Expressions   - https://www.learningjournal.guru/article/scala/functional-programming/statements-and-expressions-in-scala\n- Scala Unit Type - https://www.educba.com/scala-unit/\n- Functional Programming vs OOP - https://www.youtube.com/watch?v\u003d08CWw_VD45w",
       "user": "anonymous",
-      "dateUpdated": "2023-02-01 15:03:11.272",
+      "dateUpdated": "2023-02-13 20:47:52.890",
       "progress": 0,
       "config": {
-        "tableHide": false,
+        "tableHide": true,
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": true,
@@ -687,7 +687,7 @@
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
         "fontSize": 9.0,
-        "editorHide": true,
+        "editorHide": false,
         "results": {},
         "enabled": true
       },

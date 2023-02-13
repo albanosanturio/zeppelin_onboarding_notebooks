@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n\n# Scala 05 - Functional programming\nHere we\u0027ll get started on the scala syntax, declaring values, and making simple operations with them.\n#### Topics\n- 01.Concept\n- 02.Examples\n",
+      "text": "%md\n\n# Scala 05 - Functional programming concepts\nHere we\u0027ll get started on the scala syntax, declaring values, and making simple operations with them.\n#### Topics\n- 01.Concept\n- 02.Examples\n",
       "user": "anonymous",
-      "dateUpdated": "2023-01-27 19:09:58.724",
+      "dateUpdated": "2023-02-13 21:06:15.676",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -29,7 +29,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 05 - Functional programming\u003c/h1\u003e\n\u003cp\u003eHere we\u0026rsquo;ll get started on the scala syntax, declaring values, and making simple operations with them.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Concept\u003c/li\u003e\n\u003cli\u003e02.Examples\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 05 - Functional programming concepts\u003c/h1\u003e\n\u003cp\u003eHere we\u0026rsquo;ll get started on the scala syntax, declaring values, and making simple operations with them.\u003c/p\u003e\n\u003ch4\u003eTopics\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Concept\u003c/li\u003e\n\u003cli\u003e02.Examples\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -39,16 +39,28 @@
       "jobName": "paragraph_1674846559774_543035192",
       "id": "paragraph_1674846559774_543035192",
       "dateCreated": "2023-01-27 19:09:19.774",
-      "dateStarted": "2023-01-27 19:09:58.723",
-      "dateFinished": "2023-01-27 19:09:58.729",
+      "dateStarted": "2023-02-13 21:06:15.676",
+      "dateFinished": "2023-02-13 21:06:15.681",
       "status": "FINISHED"
     },
     {
-      "text": "%md\n",
+      "text": "%md\n\nWhen you write functional code you feel like a mathematician, and once you understand the paradigm, you want to write pure functions that always return values—not exceptions or null values—so you can combine (compose) them together to create solutions.\n\n\nImmutable values\nIn pure functional programming, only immutable values are used. In Scala this means:\nAll variables are created as val fields\n\n\nAnother feature that Scala offers to help you write functional code is the ability to write pure functions. A pure function can be defined like this:\n\nA function f is pure if, given the same input x, it always returns the same output f(x)\nThe function’s output depends only on its input variables and its implementation\nIt only computes the output and does not modify the world around it\nThis implies:\n\nIt doesn’t modify its input parameters\nIt doesn’t mutate any hidden state\nIt doesn’t have any “back doors”: It doesn’t read data from the outside world (including the console, web services, databases, files, etc.), or write data to the outside world\n\n\n\nA pure function is a function that depends only on its declared inputs and its implementation to produce its output. It only computes its output and does not depend on or modify the outside world.\n\n\nFUNCTIONS ARE VALUES\n\nhis feature has many benefits, the most common of which are (a) you can define methods to accept function parameters, and (b) you can pass functions as parameters into methods.\n\n, the ability to pass functions into other functions helps you create code that is concise and still readable—expressive.\n\n\nFunctional programming is like writing a series of algebraic equations, and because algebra doesn’t have null values or throw exceptions, you don’t use these features in FP. This brings up an interesting question: In the situations where you might normally use a null value or exception in OOP code, what do you do?\n\nFunctional programmers don’t use null values\nA main replacement for null values is to use the Option classes\nFunctional methods don’t throw exceptions; instead they return values like Option, Try, or Either\n\n\nRecursion and tail recursion\nIn functional programming, there’s a tendency to avoid the usage of the typical loops that are well-known in imperative languages. The problem with loops is their conditions are usually based on mutable variables. In Scala, it’s possible to use while loop just like in imperative languages, e.g. Java.",
       "user": "anonymous",
-      "dateUpdated": "2023-01-27 19:09:58.723",
+      "dateUpdated": "2023-02-13 20:46:37.857",
       "progress": 0,
-      "config": {},
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -59,6 +71,67 @@
       "jobName": "paragraph_1674846598723_868443592",
       "id": "paragraph_1674846598723_868443592",
       "dateCreated": "2023-01-27 19:09:58.723",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\n####  Suggested material:\n\n- Functional programming   - https://scalac.io/blog/functional-programming-in-scala/\n- Freecodecamp FP in scala - https://www.youtube.com/watch?v\u003dR0jVqeYzs9c",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-13 21:06:03.678",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eFunctional programming   - \u003ca href\u003d\"https://scalac.io/blog/functional-programming-in-scala/\"\u003ehttps://scalac.io/blog/functional-programming-in-scala/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eFreecodecamp FP in scala - \u003ca href\u003d\"https://www.youtube.com/watch?v\u003dR0jVqeYzs9c\"\u003ehttps://www.youtube.com/watch?v\u003dR0jVqeYzs9c\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676319863370_2120955286",
+      "id": "paragraph_1676319863370_2120955286",
+      "dateCreated": "2023-02-13 20:24:23.370",
+      "dateStarted": "2023-02-13 21:06:03.678",
+      "dateFinished": "2023-02-13 21:06:03.682",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-13 21:06:03.677",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676322363677_1546880507",
+      "id": "paragraph_1676322363677_1546880507",
+      "dateCreated": "2023-02-13 21:06:03.677",
       "status": "READY"
     }
   ],

@@ -130,9 +130,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%spark\nclass MyService(name: String) extends ComposedService with Showable {\n  def show \u003d s\"$name says $sayHello\"\n}",
+      "text": "%md",
       "user": "anonymous",
-      "dateUpdated": "2023-02-10 14:41:18.418",
+      "dateUpdated": "2023-02-13 16:39:48.227",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -157,7 +157,7 @@
       "jobName": "paragraph_1676038541729_1784393590",
       "id": "paragraph_1676038541729_1784393590",
       "dateCreated": "2023-02-10 14:15:41.729",
-      "status": "READY"
+      "status": "FINISHED"
     },
     {
       "text": "%md\n### 02.Singleton Objects\n\nIn Scala, the object keyword creates a Singleton object. An object defines a class that has exactly one instance.\nObjects have several uses:\n\nThey are used to create collections of utility methods.\nA companion object is an object that has the same name as the class it shares a file with. In this situation, that class is also called a companion class.\nThey’re used to implement traits to create modules.\n\n\nScala Singleton Object\nSingleton object is an object which is declared by using object keyword instead by class. No object is required to call methods declared inside singleton object.\n\nIn scala, there is no static concept. So scala creates a singleton object to provide entry point for your program execution.\n\nIf you don\u0027t create singleton object, your code will compile successfully but will not produce any output. Methods declared inside Singleton Object are accessible globally. A singleton object can extend classes and traits.\n\n\n\n#### object template:\n\u003e ` object singleton (field1: String)  { `\n\u003e `   def method1 \u003d // here your code`\n\u003e ` }`\n\n\nAgain, keep in mind this difference between objects that are an instance of a class vs Singleton Objects",
@@ -203,9 +203,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%spark\n\nobject utilityMethods {\n  def isNullOrEmpty(s: String): Boolean \u003d s \u003d\u003d null || s.trim.isEmpty\n  def leftTrim(s: String): String \u003d s.replaceAll(\"^\\\\s+\", \"\")\n  def rightTrim(s: String): String \u003d s.replaceAll(\"\\\\s+$\", \"\")\n}\n\n// Because StringUtils is a singleton, its methods can be called directly on the object:\n\nval x \u003d StringUtils.isNullOrEmpty(\"\")    // true\nval x \u003d StringUtils.isNullOrEmpty(\"a\")   // false",
+      "text": "%spark\n// In this example we create a utility object with two methods \n// First method checks if a string given is null or empty\n// The second method returns a mailbox based on the givenstring\n\nobject utilityMethods { \n  def isNullOrEmpty(s: String): Boolean \u003d s.trim.isEmpty\n  def mailbox(s: String): String \u003d s+\"@scalaexample.com\"\n}\n\n// We can use the methods written by directly calling \"object.method\"\n\nval x \u003d utilityMethods.isNullOrEmpty(\"\")    // true (is empty)\nval y \u003d utilityMethods.isNullOrEmpty(\"a\")   // false (not empty)\n\n\n// And now lets use some previous structures for a use case\n// We first give a string input (zeppelin, in this case)\n// Then we check if this is not null, if so, we return a mailbox\n\nval stringSample \u003d \"zeppelin\"\nif (utilityMethods.isNullOrEmpty(stringSample)) \n    println(\"not a valid name\")\n    else println(\"mailbox name ok: \" + utilityMethods.mailbox(stringSample))\n    \n// Methods like this (but more complex) are used once and again. These singleton objects allows us to organize methods among different \"utility object\"",
       "user": "anonymous",
-      "dateUpdated": "2023-02-10 19:15:20.093",
+      "dateUpdated": "2023-02-13 16:28:09.711",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -225,11 +225,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "\u003cconsole\u003e:36: \u001b[31merror: \u001b[0mx is already defined as value x\n       val x \u003d StringUtils.isNullOrEmpty(\"a\")   // false\n           ^\n"
+            "data": "mailbox name ok: zeppelin@scalaexample.com\ndefined object utilityMethods\n\u001b[1m\u001b[34mx\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d true\n\u001b[1m\u001b[34my\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m \u003d false\n\u001b[1m\u001b[34mstringSample\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d zeppelin\n"
           }
         ]
       },
@@ -239,14 +239,57 @@
       "jobName": "paragraph_1676043003548_65240152",
       "id": "paragraph_1676043003548_65240152",
       "dateCreated": "2023-02-10 15:30:03.548",
-      "dateStarted": "2023-02-10 19:14:52.666",
-      "dateFinished": "2023-02-10 19:14:52.686",
-      "status": "ERROR"
+      "dateStarted": "2023-02-13 16:25:15.503",
+      "dateFinished": "2023-02-13 16:25:15.623",
+      "status": "FINISHED"
     },
     {
-      "text": "%md\n####  Suggested material:\n\n- Object Oriented Programming (OOP)    - https://www.baeldung.com/scala/oop-intro\n- List class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\n- Set class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\n- Map class \u0026 methods - oficial docs: - https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html",
+      "text": "%md\nMethods like this previous example (but more complex) are used once and again. \nThese singleton objects allows us to organize methods among different \"utility objects\"\nFor example you can have your objects organized like the following:\n\n\u003ci\u003eobject apiUtility:\u003c/i\u003e containing methods to create request to an api\n\u003ci\u003eobject sparkUtilities:\u003c/i\u003e containing methods to manage the spark session\n\u003ci\u003eobject sqlUtilities:\u003c/i\u003e containing methods to read/write sql tables",
       "user": "anonymous",
-      "dateUpdated": "2023-02-09 15:35:16.992",
+      "dateUpdated": "2023-02-13 16:34:24.938",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eMethods like this previous example (but more complex) are used once and again.\u003cbr /\u003e\nThese singleton objects allows us to organize methods among different \u0026ldquo;utility objects\u0026rdquo;\u003cbr /\u003e\nFor example you can have your objects organized like the following:\u003c/p\u003e\n\u003cp\u003e\u003ci\u003eobject apiUtility:\u003c/i\u003e containing methods to create request to an api\u003cbr /\u003e\n\u003ci\u003eobject sparkUtilities:\u003c/i\u003e containing methods to manage the spark session\u003cbr /\u003e\n\u003ci\u003eobject sqlUtilities:\u003c/i\u003e containing methods to read/write sql tables\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676305698596_504231460",
+      "id": "paragraph_1676305698596_504231460",
+      "dateCreated": "2023-02-13 16:28:18.597",
+      "dateStarted": "2023-02-13 16:34:24.938",
+      "dateFinished": "2023-02-13 16:34:24.943",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n####  Suggested material:\n\n- Object Oriented Programming (OOP)    - https://www.baeldung.com/scala/oop-intro\n- Classes vs Objects: - https://www.baeldung.com/scala/classes-objects\n- Classes: - https://docs.scala-lang.org/tour/classes.html\n- Singleton Objects: - https://docs.scala-lang.org/scala3/book/taste-objects.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-13 16:39:12.745",
       "progress": 0,
       "config": {
         "colWidth": 12.0,
@@ -272,7 +315,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eObject Oriented Programming (OOP)    - \u003ca href\u003d\"https://www.baeldung.com/scala/oop-intro\"\u003ehttps://www.baeldung.com/scala/oop-intro\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eList class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/immutable/List.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSet class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Set.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eMap class \u0026amp; methods - oficial docs: - \u003ca href\u003d\"https://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\"\u003ehttps://www.scala-lang.org/api/2.12.0/scala/collection/Map.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eObject Oriented Programming (OOP)    - \u003ca href\u003d\"https://www.baeldung.com/scala/oop-intro\"\u003ehttps://www.baeldung.com/scala/oop-intro\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eClasses vs Objects: - \u003ca href\u003d\"https://www.baeldung.com/scala/classes-objects\"\u003ehttps://www.baeldung.com/scala/classes-objects\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eClasses: - \u003ca href\u003d\"https://docs.scala-lang.org/tour/classes.html\"\u003ehttps://docs.scala-lang.org/tour/classes.html\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eSingleton Objects: - \u003ca href\u003d\"https://docs.scala-lang.org/scala3/book/taste-objects.html\"\u003ehttps://docs.scala-lang.org/scala3/book/taste-objects.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -282,8 +325,8 @@
       "jobName": "paragraph_1674833164332_782932225",
       "id": "paragraph_1674833164332_782932225",
       "dateCreated": "2023-01-27 15:26:04.332",
-      "dateStarted": "2023-02-09 15:35:16.992",
-      "dateFinished": "2023-02-09 15:35:17.000",
+      "dateStarted": "2023-02-13 16:39:12.746",
+      "dateFinished": "2023-02-13 16:39:12.751",
       "status": "FINISHED"
     },
     {
