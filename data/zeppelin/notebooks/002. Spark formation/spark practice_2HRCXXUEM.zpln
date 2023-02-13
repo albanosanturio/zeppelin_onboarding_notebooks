@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# SPARK PRACTICE\nLet\u0027s review what we\u0027ve seen so far.\nBelow you\u0027ll find a set of suggested exercises for you to code or answer.\nMake sure to review it with a peer\n\n#### Exercises\n- 01.Create a dataframe using two differente methods\n- 02.Create and load a dataframe using a csv file\n- 03.Create and load a dataframe using a json file\n- 04.Join both dataframes using spark methods\n- 05.Join both dataframes using direct sql\n- 06.Define a SparkUtilities object\n- 07.Using the previous object: Add a method to create a spark session\n- 08.Using the previous object: Add a method to write a new dataframe\n\n",
       "user": "anonymous",
-      "dateUpdated": "2023-01-13 15:25:17.819",
+      "dateUpdated": "2023-02-13 21:16:49.794",
       "progress": 0,
       "config": {
         "colWidth": 12.0,
@@ -39,8 +39,8 @@
       "jobName": "paragraph_1672438086946_1901726995",
       "id": "paragraph_1672438086946_1901726995",
       "dateCreated": "2022-12-30 22:08:06.946",
-      "dateStarted": "2023-01-13 15:25:17.820",
-      "dateFinished": "2023-01-13 15:25:17.829",
+      "dateStarted": "2023-02-13 21:16:49.795",
+      "dateFinished": "2023-02-13 21:16:49.800",
       "status": "FINISHED"
     },
     {

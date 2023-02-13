@@ -1,7 +1,52 @@
 {
   "paragraphs": [
     {
+      "text": "%md\n\n# SCALA PRACTICE\nLet\u0027s review what we\u0027ve seen so far.\nBelow you\u0027ll find a set of suggested exercises for you to code or answer.\nMake sure to review it with a peer\n\n#### Exercises\n- 01.Create a list of strings\n- 02.\n- 03.\n- 04.Create a class with 2 methods\n- 05.\n- 06.Create a singleton object to store utility methods\n- 06.a.Include a method that takes a list of strings, and return a list with the lenght of each string.\n- 08.Create a method that takes an integer and returns its factorial\n- 09.Create a method that takes an integer and returns its factorial, this time using tail recursion\n",
       "user": "anonymous",
+      "dateUpdated": "2023-02-13 21:38:25.350",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSCALA PRACTICE\u003c/h1\u003e\n\u003cp\u003eLet\u0026rsquo;s review what we\u0026rsquo;ve seen so far.\u003cbr /\u003e\nBelow you\u0026rsquo;ll find a set of suggested exercises for you to code or answer.\u003cbr /\u003e\nMake sure to review it with a peer\u003c/p\u003e\n\u003ch4\u003eExercises\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Create a list of strings\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"2\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"3\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e04.Create a class with 2 methods\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"5\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e06.Create a singleton object to store utility methods\u003c/li\u003e\n\u003cli\u003e06.a.Include a method that takes a list of strings, and return a list with the lenght of each string.\u003c/li\u003e\n\u003cli\u003e08.Create a method that takes an integer and returns its factorial\u003c/li\u003e\n\u003cli\u003e09.Create a method that takes an integer and returns its factorial, this time using tail recursion\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1672438044615_1394075221",
+      "id": "paragraph_1672438044615_1394075221",
+      "dateCreated": "2022-12-30 22:07:24.615",
+      "dateStarted": "2023-02-13 21:38:23.707",
+      "dateFinished": "2023-02-13 21:38:23.712",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-13 21:17:07.391",
       "progress": 0,
       "config": {},
       "settings": {
@@ -11,13 +56,13 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1672438044615_1394075221",
-      "id": "paragraph_1672438044615_1394075221",
-      "dateCreated": "2022-12-30 22:07:24.615",
+      "jobName": "paragraph_1676323027391_167651877",
+      "id": "paragraph_1676323027391_167651877",
+      "dateCreated": "2023-02-13 21:17:07.391",
       "status": "READY"
     }
   ],
-  "name": "scala 999 - quiz",
+  "name": "scala practice",
   "id": "2HQXNVTWZ",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0",
