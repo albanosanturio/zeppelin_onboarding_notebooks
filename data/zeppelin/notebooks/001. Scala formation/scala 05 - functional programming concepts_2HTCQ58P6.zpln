@@ -1,0 +1,248 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Scala 05 - Functional programming concepts\n\nScala lets you write code in an object-oriented programming (OOP) style and in a functional programming (FP) style\nMost of the time you will see a hybrid style, using both approaches in combination. \n\nExtracting from the official scala docs:\n\u003e Functional programming is a programming paradigm where programs are constructed by applying and composing functions. \n\u003e It is a declarative programming paradigm in which function definitions are trees of expressions that each return a value, \n\u003e rather than a sequence of imperative statements which change the state of the program.\n\n\nExpanding this:\nFunctional programming is a style of programming that emphasizes writing applications using only pure functions and immutable values.\nAs an idea, functional programmers try to see their code as math — to see the combination of their functions as a series of algebraic equations. \nThe goal is to write functions that always return values (not exceptions nor null values) so you can combine them together to create solutions.\n\n\nThis will be just a theory notebook. But it important to keep the following concepts in mind while learning scala.\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 16:43:25.616",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eScala 05 - Functional programming concepts\u003c/h1\u003e\n\u003cp\u003eScala lets you write code in an object-oriented programming (OOP) style and in a functional programming (FP) style\u003cbr /\u003e\nMost of the time you will see a hybrid style, using both approaches in combination.\u003c/p\u003e\n\u003cp\u003eExtracting from the official scala docs:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eFunctional programming is a programming paradigm where programs are constructed by applying and composing functions.\u003cbr /\u003e\nIt is a declarative programming paradigm in which function definitions are trees of expressions that each return a value,\u003cbr /\u003e\nrather than a sequence of imperative statements which change the state of the program.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eExpanding this:\u003cbr /\u003e\nFunctional programming is a style of programming that emphasizes writing applications using only pure functions and immutable values.\u003cbr /\u003e\nAs an idea, functional programmers try to see their code as math — to see the combination of their functions as a series of algebraic equations.\u003cbr /\u003e\nThe goal is to write functions that always return values (not exceptions nor null values) so you can combine them together to create solutions.\u003c/p\u003e\n\u003cp\u003eThis will be just a theory notebook. But it important to keep the following concepts in mind while learning scala.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674846559774_543035192",
+      "id": "paragraph_1674846559774_543035192",
+      "dateCreated": "2023-01-27 19:09:19.774",
+      "dateStarted": "2023-02-14 16:43:25.616",
+      "dateFinished": "2023-02-14 16:43:25.621",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## Let\u0027s go through some core functional concepts\n\n\n### 01.Immutable values\nImmutability refers to the data within an object that cannot be modified once it has been created.\nIn pure functional programming, only immutable values are used. \nIn Scala this means all variables are created as val fields.\n\n\nBenefits of this:\nMakes it easier to reason about your application\nMakes it easier for compilers to reason and code becomes safer and more performant in parallelization\nThe oposite (having mutable variables) when having several pieces of code or several computers in paralel, can create mutable shared states. \nThis may induce synchronization problems. Solving this, requires more complexity managing border cases.  \n\n\n### 02.Pure functions\n\nA function f is pure if, given the same input x, it always returns the same output f(x)\nThis means the function’s output depends only on its input variables and its implementation\nIt only computes the output and does not modify nothing outside of it\n\nThis implies:\nIt doesn’t modify its input parameters\nIt doesn’t mutate any hidden state\nIt doesn’t have any “back doors”: It doesn’t read data from the outside world or write data to the outside world\n\nA pure function is a function that depends only on its declared inputs and its implementation to produce its output. \nIt only computes its output and does not depend on or modify the outside world.\n\nSome of the benefits:\nSimple and easy to understand\nThey’re easier to test\nThey’re easier to combine\nSince they don’t modify the global state, they are faster than regular functions. \nUse less memory (important for applications with large data sets)\n\n\n\n### 03.Functions are values\n\nYou can create functions as values, just like you create String and Int values.\nThis means you can pass functions as parameters into methods (as we reviewed in the functions section)\nThe ability to pass functions into other functions helps you create code that is concise and readable.\n\nFunctional programming is like writing a series of algebraic equations, and because algebra doesn’t have null values or throw exceptions, you don’t use these features in FP. \nThis brings up an interesting question: In the situations where you might normally use a null value or exception in OOP code, what do you do?\nIf everything including functions are values, ¿what happens to non-values? (null or exceptions)\n\nFunctional programming doesn’t use null values\nFunctional methods don’t throw exceptions; instead they return values like Option, Try, or Either\nScala’s solution is to use constructs like the Option/Some/None\nSee more of this in the suggested link at the bottom.\n\n\n\n### 04.Recursion and tail recursion\nIn functional programming, there’s a tendency to avoid the usage of the typical loops that are well-known in imperative languages. The problem with loops is their conditions are usually based on mutable variables. In Scala, it’s possible to use while loop just like in imperative languages, e.g. Java.\n\n\u003cb\u003eRecursion\u003c/b\u003e is a method which breaks the problem into smaller sub problems and calls itself for each of the problems. \nIt means a function calling itself. \n\nWe can use recursion instead of loops. Recursion avoids mutable state associated with loops. \nRecursion is quite common in functional programming and provides a natural way to describe many Algorithms. \nRecursion is considered as to be important in functional programming.\n\n\nProblem with recursion is that deep recursion can blow up the stack if we are not careful.\n\n\n\n\u003cb\u003eTail recursion\u003c/b\u003eThe tail recursive functions considered better than non tail recursive functions as tail-recursion can be optimized by compiler. A recursive function is said to be tail recursive if the recursive call is the last thing done by the function. There is no need to keep record of the previous state.",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 17:17:47.402",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLet\u0026rsquo;s go through some core functional concepts\u003c/h2\u003e\n\u003ch3\u003e01.Immutable values\u003c/h3\u003e\n\u003cp\u003eImmutability refers to the data within an object that cannot be modified once it has been created.\u003cbr /\u003e\nIn pure functional programming, only immutable values are used.\u003cbr /\u003e\nIn Scala this means all variables are created as val fields.\u003c/p\u003e\n\u003cp\u003eBenefits of this:\u003cbr /\u003e\nMakes it easier to reason about your application\u003cbr /\u003e\nMakes it easier for compilers to reason and code becomes safer and more performant in parallelization\u003cbr /\u003e\nThe oposite (having mutable variables) when having several pieces of code or several computers in paralel, can create mutable shared states.\u003cbr /\u003e\nThis may induce synchronization problems. Solving this, requires more complexity managing border cases.\u003c/p\u003e\n\u003ch3\u003e02.Pure functions\u003c/h3\u003e\n\u003cp\u003eA function f is pure if, given the same input x, it always returns the same output f(x)\u003cbr /\u003e\nThis means the function’s output depends only on its input variables and its implementation\u003cbr /\u003e\nIt only computes the output and does not modify nothing outside of it\u003c/p\u003e\n\u003cp\u003eThis implies:\u003cbr /\u003e\nIt doesn’t modify its input parameters\u003cbr /\u003e\nIt doesn’t mutate any hidden state\u003cbr /\u003e\nIt doesn’t have any “back doors”: It doesn’t read data from the outside world or write data to the outside world\u003c/p\u003e\n\u003cp\u003eA pure function is a function that depends only on its declared inputs and its implementation to produce its output.\u003cbr /\u003e\nIt only computes its output and does not depend on or modify the outside world.\u003c/p\u003e\n\u003cp\u003eSome of the benefits:\u003cbr /\u003e\nSimple and easy to understand\u003cbr /\u003e\nThey’re easier to test\u003cbr /\u003e\nThey’re easier to combine\u003cbr /\u003e\nSince they don’t modify the global state, they are faster than regular functions.\u003cbr /\u003e\nUse less memory (important for applications with large data sets)\u003c/p\u003e\n\u003ch3\u003e03.Functions are values\u003c/h3\u003e\n\u003cp\u003eYou can create functions as values, just like you create String and Int values.\u003cbr /\u003e\nThis means you can pass functions as parameters into methods (as we reviewed in the functions section)\u003cbr /\u003e\nThe ability to pass functions into other functions helps you create code that is concise and readable.\u003c/p\u003e\n\u003cp\u003eFunctional programming is like writing a series of algebraic equations, and because algebra doesn’t have null values or throw exceptions, you don’t use these features in FP.\u003cbr /\u003e\nThis brings up an interesting question: In the situations where you might normally use a null value or exception in OOP code, what do you do?\u003cbr /\u003e\nIf everything including functions are values, ¿what happens to non-values? (null or exceptions)\u003c/p\u003e\n\u003cp\u003eFunctional programming doesn’t use null values\u003cbr /\u003e\nFunctional methods don’t throw exceptions; instead they return values like Option, Try, or Either\u003cbr /\u003e\nScala’s solution is to use constructs like the Option/Some/None\u003cbr /\u003e\nSee more of this in the suggested link at the bottom.\u003c/p\u003e\n\u003ch3\u003e04.Recursion and tail recursion\u003c/h3\u003e\n\u003cp\u003eIn functional programming, there’s a tendency to avoid the usage of the typical loops that are well-known in imperative languages. The problem with loops is their conditions are usually based on mutable variables. In Scala, it’s possible to use while loop just like in imperative languages, e.g. Java.\u003c/p\u003e\n\u003cp\u003e\u003cb\u003eRecursion\u003c/b\u003e is a method which breaks the problem into smaller sub problems and calls itself for each of the problems.\u003cbr /\u003e\nIt means a function calling itself.\u003c/p\u003e\n\u003cp\u003eWe can use recursion instead of loops. Recursion avoids mutable state associated with loops.\u003cbr /\u003e\nRecursion is quite common in functional programming and provides a natural way to describe many Algorithms.\u003cbr /\u003e\nRecursion is considered as to be important in functional programming.\u003c/p\u003e\n\u003cp\u003eProblem with recursion is that deep recursion can blow up the stack if we are not careful.\u003c/p\u003e\n\u003cp\u003e\u003cb\u003eTail recursion\u003c/b\u003eThe tail recursive functions considered better than non tail recursive functions as tail-recursion can be optimized by compiler. A recursive function is said to be tail recursive if the recursive call is the last thing done by the function. There is no need to keep record of the previous state.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1674846598723_868443592",
+      "id": "paragraph_1674846598723_868443592",
+      "dateCreated": "2023-01-27 19:09:58.723",
+      "dateStarted": "2023-02-14 17:17:47.403",
+      "dateFinished": "2023-02-14 17:17:47.411",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n####  Suggested material:\n\n- Functional programming   - https://scalac.io/blog/functional-programming-in-scala/\n- Freecodecamp FP in scala - https://www.youtube.com/watch?v\u003dR0jVqeYzs9c",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-13 21:06:03.678",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eFunctional programming   - \u003ca href\u003d\"https://scalac.io/blog/functional-programming-in-scala/\"\u003ehttps://scalac.io/blog/functional-programming-in-scala/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eFreecodecamp FP in scala - \u003ca href\u003d\"https://www.youtube.com/watch?v\u003dR0jVqeYzs9c\"\u003ehttps://www.youtube.com/watch?v\u003dR0jVqeYzs9c\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676319863370_2120955286",
+      "id": "paragraph_1676319863370_2120955286",
+      "dateCreated": "2023-02-13 20:24:23.370",
+      "dateStarted": "2023-02-13 21:06:03.678",
+      "dateFinished": "2023-02-13 21:06:03.682",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n# Foreword\n\nThe concepts briefly discussed in this notebook may not impact you directly, but are necessary to keep learning scala and specially to develop good practices.\n\nIt\u0027s important to understand that this paradigm is naturally used for paralel compute. (Distributed systems, like hadoop, spark, etc.)\nSystems have been getting faster, mostly by the addition of many CPUs running in parallel.\nFP facilitates code distribution over several CPU makes distributed programming easier\n\n\u003cb\u003eIn a nutshell, functional programming aims to reduce complexity of big sets of code, making it more understandable and easier to mantain.\nAnd has a special use case on distributed systems. \u003c/b\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 16:10:07.142",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eForeword\u003c/h1\u003e\n\u003cp\u003eThe concepts briefly discussed in this notebook may not impact you directly, but are necessary to keep learning scala and specially to develop good practices.\u003c/p\u003e\n\u003cp\u003eIt\u0026rsquo;s important to understand that this paradigm is naturally used for paralel compute. (Distributed systems, like hadoop, spark, etc.)\u003cbr /\u003e\nSystems have been getting faster, mostly by the addition of many CPUs running in parallel.\u003cbr /\u003e\nFP facilitates code distribution over several CPU makes distributed programming easier\u003c/p\u003e\n\u003cp\u003e\u003cb\u003eIn a nutshell, functional programming aims to reduce complexity of big sets of code, making it more understandable and easier to mantain.\u003cbr /\u003e\nAnd has a special use case on distributed systems. \u003c/b\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676381402836_1576487685",
+      "id": "paragraph_1676381402836_1576487685",
+      "dateCreated": "2023-02-14 13:30:02.836",
+      "dateStarted": "2023-02-14 16:10:07.143",
+      "dateFinished": "2023-02-14 16:10:07.147",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n####  Suggested material:\n\n- Immutability   - https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/\n- Pure Functions - https://alvinalexander.com/scala/fp-book/benefits-of-pure-functions/\n- Exception handling in FP - https://docs.scala-lang.org/scala3/book/fp-functional-error-handling.html",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 17:11:35.319",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9.0,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eSuggested material:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eImmutability   - \u003ca href\u003d\"https://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/\"\u003ehttps://www.learningjournal.guru/article/scala/functional-programming/immutability-in-functional-programming/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003ePure Functions - \u003ca href\u003d\"https://alvinalexander.com/scala/fp-book/benefits-of-pure-functions/\"\u003ehttps://alvinalexander.com/scala/fp-book/benefits-of-pure-functions/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eException handling in FP - \u003ca href\u003d\"https://docs.scala-lang.org/scala3/book/fp-functional-error-handling.html\"\u003ehttps://docs.scala-lang.org/scala3/book/fp-functional-error-handling.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676322363677_1546880507",
+      "id": "paragraph_1676322363677_1546880507",
+      "dateCreated": "2023-02-13 21:06:03.677",
+      "dateStarted": "2023-02-14 17:11:35.320",
+      "dateFinished": "2023-02-14 17:11:35.325",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 16:09:15.115",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676390955115_867128583",
+      "id": "paragraph_1676390955115_867128583",
+      "dateCreated": "2023-02-14 16:09:15.115",
+      "status": "READY"
+    }
+  ],
+  "name": "scala 05 - functional programming concepts",
+  "id": "2HTCQ58P6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

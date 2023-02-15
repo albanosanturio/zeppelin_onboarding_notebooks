@@ -674,10 +674,10 @@
     {
       "text": "%md\n\n####  Suggested material:\n\n- Expressions   - https://www.learningjournal.guru/article/scala/functional-programming/statements-and-expressions-in-scala\n- Scala Unit Type - https://www.educba.com/scala-unit/\n- Functional Programming vs OOP - https://www.youtube.com/watch?v\u003d08CWw_VD45w",
       "user": "anonymous",
-      "dateUpdated": "2023-02-13 20:47:52.890",
+      "dateUpdated": "2023-02-14 15:59:29.527",
       "progress": 0,
       "config": {
-        "tableHide": true,
+        "tableHide": false,
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": true,
@@ -687,7 +687,7 @@
         "colWidth": 12.0,
         "editorMode": "ace/mode/markdown",
         "fontSize": 9.0,
-        "editorHide": false,
+        "editorHide": true,
         "results": {},
         "enabled": true
       },
@@ -710,9 +710,27 @@
       "jobName": "paragraph_1675177552521_1919883833",
       "id": "paragraph_1675177552521_1919883833",
       "dateCreated": "2023-01-31 15:05:52.521",
-      "dateStarted": "2023-02-01 15:03:11.272",
-      "dateFinished": "2023-02-01 15:03:11.276",
+      "dateStarted": "2023-02-14 15:59:29.527",
+      "dateFinished": "2023-02-14 15:59:29.531",
       "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-14 15:59:29.527",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676390369526_1839094660",
+      "id": "paragraph_1676390369526_1839094660",
+      "dateCreated": "2023-02-14 15:59:29.527",
+      "status": "READY"
     }
   ],
   "name": "scala 01 - basics",

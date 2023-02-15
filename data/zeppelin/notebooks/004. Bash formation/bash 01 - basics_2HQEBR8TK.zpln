@@ -30,9 +30,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\ncd\nls\nll\nmv\ncp\npwd\nenv\necho\nmkdir\nsh scripts\nchmod\nchown\napt install\ngrep\ncat\nhead\n",
+      "text": "%md\ncd\nls\nll\nmv\ntouch\nping\ncp\npwd\nenv\necho\nmkdir\nrmdir\nsh scripts\nchmod\nchown\napt install\nfind\nlocate\nsudo\ndf\ndu\nhead\ntail\ndiff\ntar\nps\nkill\nwget\ngrep\nman\ncat\nhead\npipe |\nnano / vim",
       "user": "anonymous",
-      "dateUpdated": "2023-01-13 19:32:40.478",
+      "dateUpdated": "2023-02-15 14:27:03.239",
       "progress": 0,
       "config": {
         "colWidth": 12.0,
@@ -67,6 +67,46 @@
       "dateCreated": "2022-12-30 22:06:28.971",
       "dateStarted": "2023-01-05 16:54:23.029",
       "dateFinished": "2023-01-05 16:54:23.717",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sh\nman ls",
+      "user": "anonymous",
+      "dateUpdated": "2023-02-15 14:26:19.471",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "This system has been minimized by removing packages and content that are\nnot required on a system that users do not log into.\n\nTo restore this content, including manpages, you can run the \u0027unminimize\u0027\ncommand. You will still need to ensure the \u0027man-db\u0027 package is installed.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1676471005214_1268983416",
+      "id": "paragraph_1676471005214_1268983416",
+      "dateCreated": "2023-02-15 14:23:25.214",
+      "dateStarted": "2023-02-15 14:26:19.502",
+      "dateFinished": "2023-02-15 14:26:19.527",
       "status": "FINISHED"
     },
     {
