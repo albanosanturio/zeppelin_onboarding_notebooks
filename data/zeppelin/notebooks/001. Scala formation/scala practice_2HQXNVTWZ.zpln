@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n\n# SCALA PRACTICE\nLet\u0027s review what we\u0027ve seen so far.\nBelow you\u0027ll find a set of suggested exercises for you to code or answer.\nMake sure to review it with a peer\n\n#### Exercises\n- 01.Create a list of strings\n- 02.\n- 03.\n- 04.Create a class with 2 methods\n- 05.\n- 06.Create a singleton object to store utility methods\n- 06.a.Include a method that takes a list of strings, and return a list with the lenght of each string.\n- 08.Create a method that takes an integer and returns its factorial\n- 09.Create a method that takes an integer and returns its factorial, this time using tail recursion\n",
+      "text": "%md\n\n# SCALA PRACTICE\nLet\u0027s review what we\u0027ve seen so far.\nBelow you\u0027ll find a set of suggested exercises for you to code or answer.\nMake sure to review it with a peer\n\n#### Exercises\n- 01.Create a list of strings\n- 02.Create an anonymous function that takes a string and keeps only the first character\n- 03.Apply function from point 02, to the list of point 01\n- 04.Create a \"company\" class with 2 fields (name and yearFounded) and 2 methods (print name and print age)\n- 05.Create 3 different instances of the class from point 04\n- 06.Create a singleton object to store utility methods\n- 07.In the previous object, include a method that takes a list of strings, and return a list with the lenght of each string.\n- 08.Apply the method from point 07, to the list from point 01.\n- 09.Create a recursive method returning the fibonacci value for a given position of the sequence.\n",
       "user": "anonymous",
-      "dateUpdated": "2023-02-13 21:38:25.350",
+      "dateUpdated": "2023-02-16 16:19:49.279",
       "progress": 0,
       "config": {
         "colWidth": 12.0,
@@ -17,8 +17,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -29,7 +29,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSCALA PRACTICE\u003c/h1\u003e\n\u003cp\u003eLet\u0026rsquo;s review what we\u0026rsquo;ve seen so far.\u003cbr /\u003e\nBelow you\u0026rsquo;ll find a set of suggested exercises for you to code or answer.\u003cbr /\u003e\nMake sure to review it with a peer\u003c/p\u003e\n\u003ch4\u003eExercises\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Create a list of strings\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"2\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"3\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e04.Create a class with 2 methods\u003c/li\u003e\n\u003cli\u003e\n\u003col start\u003d\"5\"\u003e\n\u003cli\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e06.Create a singleton object to store utility methods\u003c/li\u003e\n\u003cli\u003e06.a.Include a method that takes a list of strings, and return a list with the lenght of each string.\u003c/li\u003e\n\u003cli\u003e08.Create a method that takes an integer and returns its factorial\u003c/li\u003e\n\u003cli\u003e09.Create a method that takes an integer and returns its factorial, this time using tail recursion\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eSCALA PRACTICE\u003c/h1\u003e\n\u003cp\u003eLet\u0026rsquo;s review what we\u0026rsquo;ve seen so far.\u003cbr /\u003e\nBelow you\u0026rsquo;ll find a set of suggested exercises for you to code or answer.\u003cbr /\u003e\nMake sure to review it with a peer\u003c/p\u003e\n\u003ch4\u003eExercises\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e01.Create a list of strings\u003c/li\u003e\n\u003cli\u003e02.Create an anonymous function that takes a string and keeps only the first character\u003c/li\u003e\n\u003cli\u003e03.Apply function from point 02, to the list of point 01\u003c/li\u003e\n\u003cli\u003e04.Create a \u0026ldquo;company\u0026rdquo; class with 2 fields (name and yearFounded) and 2 methods (print name and print age)\u003c/li\u003e\n\u003cli\u003e05.Create 3 different instances of the class from point 04\u003c/li\u003e\n\u003cli\u003e06.Create a singleton object to store utility methods\u003c/li\u003e\n\u003cli\u003e07.In the previous object, include a method that takes a list of strings, and return a list with the lenght of each string.\u003c/li\u003e\n\u003cli\u003e08.Apply the method from point 07, to the list from point 01.\u003c/li\u003e\n\u003cli\u003e09.Create a recursive method returning the fibonacci value for a given position of the sequence.\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -39,27 +39,9 @@
       "jobName": "paragraph_1672438044615_1394075221",
       "id": "paragraph_1672438044615_1394075221",
       "dateCreated": "2022-12-30 22:07:24.615",
-      "dateStarted": "2023-02-13 21:38:23.707",
-      "dateFinished": "2023-02-13 21:38:23.712",
+      "dateStarted": "2023-02-16 16:19:49.280",
+      "dateFinished": "2023-02-16 16:19:49.289",
       "status": "FINISHED"
-    },
-    {
-      "text": "%md\n",
-      "user": "anonymous",
-      "dateUpdated": "2023-02-13 21:17:07.391",
-      "progress": 0,
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1676323027391_167651877",
-      "id": "paragraph_1676323027391_167651877",
-      "dateCreated": "2023-02-13 21:17:07.391",
-      "status": "READY"
     }
   ],
   "name": "scala practice",
